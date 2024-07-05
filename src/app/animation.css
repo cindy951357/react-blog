@@ -1,22 +1,69 @@
 .glow-button {
+  position: relative;
   border: none;
   padding: 15px 30px;
   font-size: 18px;
   color: peru;
   cursor: pointer;
-  transition: box-shadow 0.3s ease-in-out;
   border-radius: 10px;
+  overflow: hidden;
+  z-index: 0;
 }
 
-.glow-button.glow {
-  transition: box-shadow 0.3s ease-in-out;
+.glow-button::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  background: pink;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  opacity: 0;
+  z-index: -1;
 }
 
-@keyframes glowEffect {
-  0% {
-    box-shadow: 0 0 5px khaki;
+.glow-button:hover::after {
+  transform: translate(-50%, -50%) scale(20);
+  opacity: 1;
+}
+
+.line-anim-container {
+  position: relative;
+  height: 2px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.line-anim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+}
+
+.glowing-dot {
+  position: absolute;
+  top: -6px; /* Adjusted to center the dot */
+  left: -15px; /* Adjusted for the size of the dot */
+  width: 3px;
+  height: 3px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 10px lavenderblush; /* Increased size of the glow */
+  animation: slide 6s infinite alternate;
+}
+
+@keyframes slide {
+  from {
+    left: -10px;
   }
-  100% {
-    box-shadow: 0 0 20px khaki;
+  to {
+    left: calc(100% - 10px);
   }
 }
