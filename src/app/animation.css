@@ -1,0 +1,25 @@
+.glow-button {
+    background-color: lightgoldenrodyellow;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: peru;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  .glow-button.glow {
+    box-shadow: 0 0 20px khaki;
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: lightgoldenrodyellow;
+  }
+  
+  @keyframes glowEffect {
+    0% {
+      box-shadow: 0 0 5px khaki;
+    }
+    100% {
+      box-shadow: 0 0 20px lightgoldenrodyellow;
+    }
+  }
