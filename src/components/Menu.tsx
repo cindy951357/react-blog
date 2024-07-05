@@ -11,14 +11,21 @@ const Menu: React.FC = () => {
     };
 
     return (
-        <div className="menu flex justify-center gap-2">
-            <Link href="/">
-                <GlowButton btnText={'Home'} color={'LavenderBlush'}/>
-            </Link>
-            <Link href="/write">
-                <GlowButton btnText={'Write'} color={'LavenderBlush'}/>
-            </Link>
+        <div className="menu-container flex justify-center gap-2 mt-4">
+            <div className='dummy-div'></div> 
+            <div className="col-span-4">
+            <div className="menu flex gap-2 border-b-2 border-white">
+                <Link href="/">
+                    <GlowButton btnText={'Home'} color={'LavenderBlush'}/>
+                </Link>
+                <Link href="/write">
+                    <GlowButton btnText={'Write'} color={'LavenderBlush'}/>
+                </Link>
+            <div className='dummy-div'></div>
+            </div>
+            <div className='dummy-div'></div> 
         </div>
+    </div>
     )
 };
 
