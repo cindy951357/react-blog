@@ -8,7 +8,7 @@ const LatestComment: React.FC = () => {
   return (
     <div>
       <h2>Latest Comment</h2>
-      {latestComment ? <p>{latestComment.text}</p> : <p>No comments yet.</p>}
+      {latestComment ? <p>{latestComment.content}</p> : <p>No comments yet.</p>}
     </div>
   );
 };

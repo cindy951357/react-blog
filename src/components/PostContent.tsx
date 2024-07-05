@@ -1,7 +1,8 @@
-export default function PostContent () {
-    return (
-        <div className="post-content">
-            Post Content
-        </div>
-    )
-}
+export interface PostContent {
+    id: number;
+    title: string;
+    content: string;
+    time: string;
+    numLikes: number;
+    imgURL: string;
+  }

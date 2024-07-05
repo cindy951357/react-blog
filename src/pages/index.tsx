@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import GlowButton from '@/components/Button/GlowButton';
 import CommentList from '../components/CommentList';
-import LatestComment from '../components/LatestComments';
+import PostList from '../components/PostList';
 
 export default function Index() {
     const { t } = useTranslation('common');
@@ -13,10 +13,7 @@ export default function Index() {
               <div className="bg-white p-4 shadow-md">
                 <h2 className="text-xl font-bold mb-4">Article List</h2>
                 <ul>
-                  <li className="mb-2">Article 1</li>
-                  <li className="mb-2">Article 2</li>
-                  <li className="mb-2">Article 3</li>
-
+                  <PostList/>
                 </ul>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React, { ReactNode }  from 'react';
 import Menu from './Menu';
 import { useTranslation } from 'next-i18next';
+import Header from './Header';
 import Footer from './Footer';
 
 interface LayoutProps {
@@ -12,6 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div>
+      <Header/>
       <Menu />
       <div className="content flex justify-center">
         {children}

@@ -1,8 +1,12 @@
+import { MOCK_COMMENTS } from '@/mockData';
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 interface Comment {
   id: number;
-  text: string;
+  content: string;
+  title: string;
+  time: string;
+  numLikes: number;
 }
 
 interface CommentContextProps {
@@ -21,7 +25,7 @@ export const useComments = () => {
 };
 
 export const CommentProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [comments, setComments] = useState<Comment[]>([{id: 1, text: 'First coment'}]);
+  const [comments, setComments] = useState<Comment[]>(MOCK_COMMENTS);
 
   const addComment = (comment: Comment) => {
     setComments([...comments, comment]);

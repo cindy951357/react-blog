@@ -21,6 +21,9 @@ const Menu: React.FC = () => {
                 <Link href="/write">
                     <GlowButton btnText={'Write'} color={'LavenderBlush'}/>
                 </Link>
+                <Link href="/write">
+                    <GlowButton btnText={'About'} color={'LavenderBlush'}/>
+                </Link>
             <div className='dummy-div'></div>
             </div>
             <div className='dummy-div'></div> 
