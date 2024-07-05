@@ -7,7 +7,7 @@ export const MOCK_POST = [
         色上的立體感，這也是畫家必須要自己去刻意練習去成就的。',
         time: '2024/06/28T20/07/05',
         numLikes: 90,
-        imgURL: 'RabitMug.png',
+        imgURL: 'RabbitMug.png',
     }
 ];
 
