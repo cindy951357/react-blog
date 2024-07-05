@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div>
       <Header/>
       <Menu />
-      <div className="content flex justify-center">
+      <div className="content main-layout flex justify-center">
         {children}
       </div>
       <Footer/>
