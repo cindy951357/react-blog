@@ -15,7 +15,13 @@ i18n
     },
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
-      caches: ['cookie']
+      caches: ['cookie'],
+      // 這裡可以設置默認的語言檢測
+      lookupQuerystring: 'lng',
+      lookupCookie: 'i18next',
+      lookupLocalStorage: 'i18nextLng',
+      lookupFromPathIndex: 0,
+      lookupFromSubdomainIndex: 0
     },
     react: {
       useSuspense: false
