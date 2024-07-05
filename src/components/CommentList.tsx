@@ -1,12 +1,19 @@
-import Comment from "./Comment";
+import React from 'react';
+import { useComments } from './CommentContext';
 
-export default function CommentList () {
-    const comments = Array.from({ length: 10 }, (_, i) => `This is comment ${i + 1}`);
-    return (
-        <div>
-            {comments.map((text, index) => (
-                <Comment key={index} commentText={text}/>
-            ))}
-        </div>
-    )
-}
+const CommentList: React.FC = () => {
+  const { comments } = useComments();
+
+  return (
+    <div>
+      <h2>All Comments</h2>
+      <ul>
+        {comments.map((comment) => (
+          <li key={comment.id}>{comment.text}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default CommentList;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import GlowButton from './Button/GlowButton';
 
 const Menu: React.FC = () => {
     const router = useRouter();
@@ -10,12 +11,12 @@ const Menu: React.FC = () => {
     };
 
     return (
-        <div className="menu">
-            <Link href="/home">
-                <button>Home</button>
+        <div className="menu flex justify-center gap-2">
+            <Link href="/">
+                <GlowButton btnText={'Home'} color={'LavenderBlush'}/>
             </Link>
             <Link href="/write">
-                <button>Write</button>
+                <GlowButton btnText={'Write'} color={'LavenderBlush'}/>
             </Link>
         </div>
     )

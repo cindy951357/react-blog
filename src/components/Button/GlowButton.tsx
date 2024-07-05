@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 
 interface GlowButtonProps {
     btnText: string;
+    color: string;
 }
 
-const GlowButton: React.FC<GlowButtonProps> = ({ btnText }) => {
+const GlowButton: React.FC<GlowButtonProps> = ({ btnText, color }) => {
   const [isGlowing, setIsGlowing] = useState(false);
 
   return (
@@ -12,6 +13,10 @@ const GlowButton: React.FC<GlowButtonProps> = ({ btnText }) => {
       className={`glow-button ${isGlowing ? 'glow' : ''}`}
       onMouseOver={() => setIsGlowing(true)}
       onMouseOut={() => setIsGlowing(false)}
+      style={{
+        backgroundColor: color,
+        boxShadow: isGlowing ? `0 0 20px ${color}` : 'none',
+      }}
     >
       {btnText}
     </button>
