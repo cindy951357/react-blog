@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import GlowButton from "./Button/GlowButton";
+import PlainButton from "./Button/PlainButton";
 import { useActivePage } from "@/context/ActivePageContext";
 
 const menuItems = ["/", "/write", "/about/site-intro"];
@@ -58,7 +58,7 @@ const Menu: React.FC = () => {
           <div className="link-href-container flex">
             <Link href="/" legacyBehavior>
               <a>
-                <GlowButton
+                <PlainButton
                   btnText={"Home"}
                   color={activePage === "/" ? "LavenderBlush" : "defaultColor"}
                   onClick={() => {
@@ -70,8 +70,8 @@ const Menu: React.FC = () => {
             </Link>
             <Link href="/write" legacyBehavior>
               <a>
-                <GlowButton
-                  btnText={"Write"}
+                <PlainButton
+                  btnText={"Write a Post"}
                   color={
                     activePage === "/write" ? "LavenderBlush" : "defaultColor"
                   }
@@ -84,7 +84,7 @@ const Menu: React.FC = () => {
             </Link>
             <Link href="/about/site-intro" legacyBehavior>
               <a>
-                <GlowButton
+                <PlainButton
                   btnText={"About"}
                   color={
                     activePage === "/about/site-intro"
