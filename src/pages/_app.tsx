@@ -1,17 +1,17 @@
-import { AppProps } from 'next/app';
-import Layout from '../components/Layout';
-import { CommentProvider } from '../components/CommentContext';
-import { appWithTranslation } from 'next-i18next';
-import '../app/globals.css';
-import '../app/animation.css';
+import { AppProps } from "next/app";
+import Layout from "../components/Layout";
+import { appWithTranslation } from "next-i18next";
+import AppProvider from "@/context/AppProvider";
+import "../app/globals.css";
+import "../app/animation.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <CommentProvider>
+    <AppProvider>
       <Layout>
         <Component {...pageProps} />
-      </Layout>  
-    </CommentProvider>          
+      </Layout>
+    </AppProvider>
   );
 }
 

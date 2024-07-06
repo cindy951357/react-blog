@@ -1,5 +1,5 @@
 import React from 'react';
-import { useComments } from './CommentContext';
+import { useComments } from '../context/CommentContext';
 
 const LatestComment: React.FC = () => {
   const { comments } = useComments();
