@@ -8,6 +8,15 @@ export const MOCK_POST = [
         time: '2024/06/28T20/07/05',
         numLikes: 90,
         imgURL: 'RabbitMug.png',
+    }, {
+        id: 2,
+        title: '自我療癒強迫症的心得',
+        content: '不要去過度在意任何事情\
+        甚至即使不小心過度在意了某某某事情，也不要過度在意剛才啊怎麼我又過度\
+        在意這個某某某事情了',
+        time: '20240706T08:55:33',
+        numLikes: 22,
+        imgURL: 'RabbitFlower01.png',
     }
 ];
 

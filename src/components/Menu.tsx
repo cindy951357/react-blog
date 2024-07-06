@@ -100,7 +100,7 @@ const Menu: React.FC = () => {
             </Link>
           </div>
           {linkWidths.length === menuItems.length && (
-            <div className="sliding-menu-line-container flex h-2 relative">
+            <div className="sliding-menu-line-container flex h-2 relative mt-0">
               <div className="background-line w-full">
                 <div
                   id="moving_menu_line"

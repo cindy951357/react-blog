@@ -16,7 +16,6 @@ const GlowButton: React.FC<GlowButtonProps> = ({ btnText, color, onClick }) => {
       onMouseOver={() => setIsGlowing(true)}
       onMouseOut={() => setIsGlowing(false)}
       style={{
-        backgroundColor: color,
         boxShadow: isGlowing ? `0 0 20px ${color}` : "none",
       }}
     >
