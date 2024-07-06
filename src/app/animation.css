@@ -66,3 +66,26 @@
     left: calc(100% - 10px);
   }
 }
+
+.sliding-menu-line-container {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  margin-top: 10px; /* Optional for spacing */
+}
+
+.background-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+}
+
+.moving-menu-line {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
