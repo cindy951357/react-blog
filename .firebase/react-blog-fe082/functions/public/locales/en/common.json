@@ -1,0 +1,10 @@
+{
+  "common":{
+    "welcome": "!"
+  },
+  "welcome": "Welcome to My Blog",
+  "latestPosts": "Latest Posts",
+  "latestComments": "Latest Comments",
+  "addPost": "Add New Post",
+  "addComment": "Add Comment",
+}
