@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+.firebase/react-blog-fe082/functions/node_modules/
+blog/node_modules
+reactblog/node_modules
 
 # testing
 /coverage
