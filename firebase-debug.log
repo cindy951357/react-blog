@@ -1,0 +1,21 @@
+[debug] [2024-07-07T00:04:42.514Z] ----------------------------------------------------------------------
+[debug] [2024-07-07T00:04:42.518Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-07-07T00:04:42.519Z] CLI Version:   13.13.0
+[debug] [2024-07-07T00:04:42.519Z] Platform:      win32
+[debug] [2024-07-07T00:04:42.520Z] Node Version:  v18.19.0
+[debug] [2024-07-07T00:04:42.521Z] Time:          Sun Jul 07 2024 08:04:42 GMT+0800 (台北標準時間)
+[debug] [2024-07-07T00:04:42.522Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-07T00:04:42.695Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-07T00:04:42.695Z] > authorizing via signed-in user (cindy951357@gmail.com)
+[debug] [2024-07-07T00:04:42.695Z] [iam] checking project react-blog-fe082 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-07-07T00:04:42.697Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions [none]
+[debug] [2024-07-07T00:04:42.697Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions x-goog-quota-user=projects/react-blog-fe082
+[debug] [2024-07-07T00:04:42.698Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-07-07T00:04:43.165Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions 200
+[debug] [2024-07-07T00:04:43.166Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-07-07T00:04:43.166Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-07-07T00:04:43.166Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-07-07T00:04:43.490Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-07-07T00:04:43.490Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-07-07T00:04:43.494Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 [none]
