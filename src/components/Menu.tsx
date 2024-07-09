@@ -7,8 +7,8 @@ import { useActivePage } from "@/context/ActivePageContext";
 const menuItems = ["/", "/write", "/about/site-intro"];
 
 const Menu: React.FC = () => {
-  const router = useRouter();
   const { activePage, setActivePage } = useActivePage();
+  const router = useRouter();
   const activeIndex = menuItems.indexOf(activePage);
   const [linkWidths, setLinkWidths] = useState<number[]>([]);
   const [leftOffset, setLeftOffset] = useState<number>(0);
@@ -55,6 +55,7 @@ const Menu: React.FC = () => {
       <div className="dummy-div"></div>
       <div className="col-span-4">
         <div className="menu flex flex-col">
+          {/**sliding-menu-line-container 與  link-href-container 之間是 flex-col 的架構*/}
           <div className="link-href-container flex">
             <Link href="/" legacyBehavior>
               <a>
@@ -100,7 +101,7 @@ const Menu: React.FC = () => {
             </Link>
           </div>
           {linkWidths.length === menuItems.length && (
-            <div className="sliding-menu-line-container flex h-2 relative mt-0">
+            <div className="sliding-menu-line-container flex h-2 relative mt-0 mb-4">
               <div className="background-line w-full">
                 <div
                   id="moving_menu_line"

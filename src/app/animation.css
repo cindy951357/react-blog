@@ -74,6 +74,12 @@
   margin-top: 10px; /* Optional for spacing */
 }
 
+.sliding-about-menu-line-container{
+  position: relative;
+  height: 100%;
+  width: 4px;
+}
+
 .background-line {
   position: absolute;
   top: 0;
@@ -83,9 +89,60 @@
   background-color: lightgray;
 }
 
+#about_menu .background-line {
+  
+}
+
 .moving-menu-line {
   position: absolute;
   top: 0;
   height: 100%;
-  transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition: left 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55), width 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
+
+.moving-about-menu-line {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  transition: top 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55), height 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+
+/* cubic-bezier(n,n,n,n) 是一種用於 CSS 變換和過渡的計時函數，它定義了變化速度的曲線。
+這個函數使用四個參數來定義貝塞爾曲線，這些參數分別是控制點的 X 和 Y 坐標。
+通過這些控制點，你可以創建各種不同的動畫效果。
+
+說明
+cubic-bezier(p1x, p1y, p2x, p2y) 其中：
+p1x, p1y 是第一個控制點的 X 和 Y 坐標。
+p2x, p2y 是第二個控制點的 X 和 Y 坐標。
+這四個值都必須在 0 到 1 之間，因為它們定義了曲線在時間上的進展（0 表示開始，1 表示結束）。
+
+例子
+線性（線性過渡）:
+
+css
+複製程式碼
+transition: all 0.5s cubic-bezier(0, 0, 1, 1);
+這相當於 linear，變化的速度是恆定的。
+
+ease-in（緩慢開始）:
+
+css
+複製程式碼
+transition: all 0.5s cubic-bezier(0.42, 0, 1, 1);
+這個曲線表示動畫開始時比較慢，然後逐漸加速。
+
+ease-out（緩慢結束）:
+
+css
+複製程式碼
+transition: all 0.5s cubic-bezier(0, 0, 0.58, 1);
+這個曲線表示動畫開始時比較快，然後逐漸減速。
+
+ease-in-out（緩慢開始和結束）:
+
+css
+複製程式碼
+transition: all 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+這個曲線表示動畫開始和結束時都比較慢，中間比較快。 */
