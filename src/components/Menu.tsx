@@ -51,9 +51,9 @@ const Menu: React.FC = () => {
   }, [activeIndex, linkWidths]);
 
   return (
-    <div className="menu-container flex justify-center gap-2 mt-4">
-      <div className="dummy-div"></div>
-      <div className="col-span-4">
+    <div className="menu-container flex justify-center gap-2 mt-4 md:grid-cols-12">
+      <div className="dummy-div md:col-span-1"></div>
+      <div className="md:col-span-10">
         <div className="menu flex flex-col">
           {/**sliding-menu-line-container 與  link-href-container 之間是 flex-col 的架構*/}
           <div className="link-href-container flex">
@@ -99,23 +99,24 @@ const Menu: React.FC = () => {
                 />
               </a>
             </Link>
-          </div>
-          {linkWidths.length === menuItems.length && (
-            <div className="sliding-menu-line-container flex h-2 relative mt-0 mb-4">
-              <div className="background-line w-full">
-                <div
-                  id="moving_menu_line"
-                  className="moving-menu-line h-2 bg-rose-500"
-                  style={{
-                    left: `${leftOffset}px`,
-                  }}
-                ></div>
+          </div>          
+            {linkWidths.length === menuItems.length && (
+              <div className="sliding-menu-line-container flex h-2 relative mt-0 mb-4
+                flex justify-center">
+                <div className="background-line w-full flex justify-center">
+                  <div
+                    id="moving_menu_line"
+                    className="moving-menu-line h-2 bg-rose-500 flex justify-center"
+                    style={{
+                      left: `${leftOffset}px`,
+                    }}
+                  ></div>
+                </div>
               </div>
-            </div>
-          )}
+            )}          
           <div className="dummy-div"></div>
         </div>
-        <div className="dummy-div"></div>
+        <div className="dummy-div  md:col-span-1"></div>
       </div>
     </div>
   );
