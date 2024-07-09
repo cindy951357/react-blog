@@ -63,7 +63,7 @@ const AboutMenu = () => {
 
 
   return (
-    <nav id='about_menu relative'>
+    <nav id='about_menu relative flex flex-row'>
       {/**sliding-about-menu-line-container 與  aboutlink-href-container 之間是 flex-row 的關係*/}
         <div className="invariant-bg-line-absolute absolute w-2 flex bg-neutral-300 h-[400px] p-0 m-0">
           {linkVerticalHeights.length === menuItems.length && (
