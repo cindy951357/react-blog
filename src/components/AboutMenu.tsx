@@ -5,11 +5,23 @@ import { useActivePage } from "@/context/ActivePageContext";
 import PlainButton from "./Button/PlainButton";
 
 
-const menuItems = ["/contact", "/site-intro"];
+const menuItems = [
+  {
+    pageName:"Site Intro",
+    href:'/about/site-intro'
+  },{
+    pageName:"Contact",
+    href:'/about/contact'
+  },
+  {
+    pageName:"Language Setting",
+    href:'/about/language-setting'
+  },
+];
 const AboutMenu = () => {
   const router = useRouter();
   const { activeAboutPage, setActiveAboutPage } = useActivePage();
-  const activeIndex = menuItems.indexOf(activeAboutPage);
+  const activeIndex = menuItems.findIndex(item => item.pageName === activeAboutPage);
   const [linkVerticalHeights, setLinkHeights] = useState<number[]>([]);
   const [topOffset, setTopOffset] = useState<number>(0);
 
@@ -24,14 +36,13 @@ const AboutMenu = () => {
       const heights = Array.from(linkElements).map(
         (link) => (link as HTMLElement).offsetHeight
       );
-      console.log('TODO:',heights)
       setLinkHeights(heights);
     };
 
     updateLineHeights();
-    window.addEventListener("resize about menu", updateLineHeights);
+    window.addEventListener("resize-abut-menu", updateLineHeights);
     return () => {
-      window.removeEventListener("resize about menu", updateLineHeights);
+      window.removeEventListener("resize-about-menu", updateLineHeights);
     };
   }, []);
 
@@ -52,54 +63,42 @@ const AboutMenu = () => {
 
 
   return (
-    <nav id='about_menu flex flex-row'>
+    <nav id='about_menu relative'>
       {/**sliding-about-menu-line-container 與  aboutlink-href-container 之間是 flex-row 的關係*/}
-      {linkVerticalHeights.length === menuItems.length && (
-          <div className="sliding-about-menu-line-container flex h-full w-2 relative mr-0">
-            <div className="background-line h-full">
-              <div
-                id="moving_about_menu_line"
-                className="moving-about-menu-line bg-rose-500"
-                style={{
-                  top: `${topOffset}px`,
-                }}
-              ></div>
-            </div>
-          </div>
-        )}
-      <ul className='about-link-href-container flex flex-col'>        
-        <li className='flex'>
-          <Link href="/about/site-intro" legacyBehavior>
-            <a>
+        <div className="invariant-bg-line-absolute absolute w-2 flex bg-neutral-300 h-[400px] p-0 m-0">
+          {linkVerticalHeights.length === menuItems.length && (
+              <div className="sliding-about-menu-line-container flex w-2 relative mr-0 flex">
+                <div className="background-line h-full bg-neutral-200">
+                  <div
+                    id="moving_about_menu_line"
+                    className="moving-about-menu-line bg-rose-500"
+                    style={{
+                      top: `${topOffset}px`,
+                    }}
+                  ></div>
+                </div>
+              </div>
+            )}
+      </div>
+      <ul className='about-link-href-container flex flex-col'>
+        {menuItems.map(item => (
+          <li key={item.pageName} className='flex'>
+            <Link href={item.href} legacyBehavior>
+              <a>
                 <PlainButton
-                  btnText={"Contact"}
+                  btnText={item.pageName}
                   color={
-                    activeAboutPage === "/about/contact" ? "LavenderBlush" : "defaultColor"
+                    activeAboutPage === item.href ? "LavenderBlush" : "defaultColor"
                   }
                   onClick={() => {
-                    setActiveAboutPage("/contact");
-                    navigateTo("/about/contact");
+                    setActiveAboutPage(item.pageName);
+                    navigateTo(item.href);
                   }}
                 />
               </a>
-          </Link>
-        </li>
-        <li className='flex'>
-        <Link href="/about/site-intro" legacyBehavior>
-            <a>
-                <PlainButton
-                  btnText={"Site Intro"}
-                  color={
-                    activeAboutPage === "/about/site-intro" ? "LavenderBlush" : "defaultColor"
-                  }
-                  onClick={() => {
-                    setActiveAboutPage("/site-intro");
-                    navigateTo("/about/site-intro");
-                  }}
-                />
-              </a>
-          </Link>
-        </li>
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

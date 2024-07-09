@@ -17,6 +17,12 @@ const config: Config = {
         sans: ['Roboto', 'Arial', 'sans-serif'],
         serif: ['Nunito Sans', 'Merriweather', 'serif'],
       },
+      colors: {
+        primary: {
+          DEFAULT: '#f43f5e', // rose-500
+        },
+        skin: '#ffe5c8',
+      }
     },
   },
   plugins: [],

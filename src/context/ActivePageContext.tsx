@@ -11,7 +11,7 @@ const ActivePageContext = createContext<ActivePageContextType | undefined>(undef
 
 export const ActivePageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [activePage, setActivePage] = useState<string>('/');
-    const [activeAboutPage, setActiveAboutPage] = useState<string>('/about-contact');
+    const [activeAboutPage, setActiveAboutPage] = useState<string>('Contact');
 
     return (
         <ActivePageContext.Provider value={{ activePage, setActivePage,
