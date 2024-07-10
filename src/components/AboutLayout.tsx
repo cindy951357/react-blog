@@ -8,9 +8,9 @@ type AboutLayoutProps = {
 
 const AboutLayout = ({ children }: AboutLayoutProps) => {
   return (
-    <div className='about-layout grid grid-cols-[1fr_20fr_1fr_1fr]'>
+    <div className='about-layout grid grid-cols-[1fr_20fr_1fr_1fr] h-full'>
       <div className="dummy about-dummy"></div>
-      <div className='about-main'>{children}</div>
+      <div className='about-main bg-white rounded-xl mr-2 h-full'>{children}</div>
       <div className="about-menu-container">
         <AboutMenu />
       </div>
