@@ -389,3 +389,127 @@ Type error: Cannot find module 'firebase-functions/v2/https' or its correspondin
 [debug] [2024-07-10T06:28:11.259Z] Error: ENOENT: no such file or directory, open 'C:\Users\ccind\OneDrive\桌面\Codes\react-blog\.next\export-marker.json'
 [error] 
 [error] Error: An unexpected error has occurred.
+[debug] [2024-07-10T06:29:27.442Z] ----------------------------------------------------------------------
+[debug] [2024-07-10T06:29:27.445Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ccind\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-07-10T06:29:27.445Z] CLI Version:   13.13.0
+[debug] [2024-07-10T06:29:27.446Z] Platform:      win32
+[debug] [2024-07-10T06:29:27.446Z] Node Version:  v20.15.0
+[debug] [2024-07-10T06:29:27.446Z] Time:          Wed Jul 10 2024 14:29:27 GMT+0800 (台北標準時間)
+[debug] [2024-07-10T06:29:27.446Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-10T06:29:27.496Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-10T06:29:27.496Z] > authorizing via signed-in user (cindy951357@gmail.com)
+[debug] [2024-07-10T06:29:27.496Z] [iam] checking project react-blog-fe082 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-07-10T06:29:27.498Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions [none]
+[debug] [2024-07-10T06:29:27.498Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions x-goog-quota-user=projects/react-blog-fe082
+[debug] [2024-07-10T06:29:27.498Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-07-10T06:29:27.730Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions 200
+[debug] [2024-07-10T06:29:27.730Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-07-10T06:29:27.730Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-07-10T06:29:27.730Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-07-10T06:29:28.744Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-07-10T06:29:28.744Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-07-10T06:29:28.745Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 [none]
+[debug] [2024-07-10T06:29:28.979Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 200
+[debug] [2024-07-10T06:29:28.979Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 {"projectId":"react-blog-fe082","projectNumber":"719505269512","displayName":"react-blog","name":"projects/react-blog-fe082","resources":{"hostingSite":"react-blog-fe082"},"state":"ACTIVE","etag":"1_8b3376c6-ead6-40ee-a3cf-e1866fa61872"}
+[debug] [2024-07-10T06:29:30.265Z] defaultcredentials: writing to file C:\Users\ccind\AppData\Roaming\firebase\cindy951357_gmail_com_application_default_credentials.json
+[debug] [2024-07-10T06:29:30.266Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites pageToken=&pageSize=10
+[debug] [2024-07-10T06:29:30.620Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 200
+[debug] [2024-07-10T06:29:30.620Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites {"sites":[{"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-07-10T06:29:30.621Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 
+[debug] [2024-07-10T06:29:30.961Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 200
+[debug] [2024-07-10T06:29:30.962Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites {"sites":[{"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-07-10T06:29:30.962Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config [none]
+[debug] [2024-07-10T06:29:31.580Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config 200
+[debug] [2024-07-10T06:29:31.580Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config {"projectId":"react-blog-fe082","storageBucket":"react-blog-fe082.appspot.com","apiKey":"AIzaSyDdMFpvGGqwbJBbzllHOhMbViobSkUQkuE","authDomain":"react-blog-fe082.firebaseapp.com","messagingSenderId":"719505269512"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-07-10T06:29:34.728Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 [none]
+[debug] [2024-07-10T06:29:35.006Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 200
+[debug] [2024-07-10T06:29:35.006Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 {"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.4
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/25) ...
+
+[info] react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+
+[info] react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+
+[info] react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+
+[info] react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+
+[info]    Generating static pages (6/25) 
+
+[info]    Generating static pages (12/25) 
+
+[info] react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+
+[info] react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+
+[info]    Generating static pages (18/25) 
+
+[info] react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+
+[info] react-i18next:: You will need to pass in an i18next instance by using initReactI18next
+
+[info]  ✓ Generating static pages (25/25)
+
+[info]    Finalizing page optimization ...
+   Collecting build traces ...
+
+[info] 
+
+[info] 
+Route (pages)                              Size     First Load JS
+┌ ○ / (673 ms)                             4.68 kB         110 kB
+├   /_app                                  0 B             105 kB
+├ ○ /404                                   181 B           105 kB
+├ ○ /about (677 ms)                        1.13 kB         106 kB
+├ ○ /about/contact (695 ms)                1.17 kB         106 kB
+├ ○ /about/language-setting (682 ms)       1.16 kB         106 kB
+├ ○ /about/site-intro (732 ms)             1.15 kB         106 kB
+└ ○ /write (667 ms)                        299 B           105 kB
++ First Load JS shared by all              108 kB
+  ├ chunks/framework-9fe9384ac9eafba1.js   45.2 kB
+  ├ chunks/main-b5e618b4ba499f63.js        32.7 kB
+  ├ chunks/pages/_app-6068547bbde16923.js  25.5 kB
+  └ other shared chunks (total)            4.71 kB
+
+[info] 
+○  (Static)  prerendered as static content
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • Image Optimization
+[info] 
