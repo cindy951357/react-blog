@@ -5,7 +5,7 @@ const CommentList: React.FC = () => {
   const { comments } = useComments();
 
   return (
-    <div>
+    <div className='comment-list'>
       <ul>
         {comments.map((comment) => (
           <li key={comment.id} className='mb-4 border-l-2 border-stone-200 pl-2 leading-relaxed text-xs'>
