@@ -8,11 +8,12 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en',
     supportedLngs: ['en', 'zh'],
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json'
     },
+    fallbackLng: 'en',
+    lng: 'en',
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
       caches: ['cookie'],
@@ -25,7 +26,7 @@ i18n
     },
     react: {
       useSuspense: false
-    }
+    },
   });
 
 export default i18n;

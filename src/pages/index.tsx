@@ -2,6 +2,19 @@ import { useEffect } from "react";
 import CommentList from "../components/Comment/CommentList";
 import PostList from "../components/Post/PostList";
 import { useToast } from "@/context/ToastContext";
+import { GetStaticProps, GetStaticPropsContext } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export const getStaticProps = async ({ locale }) => {
+  const translations = await serverSideTranslations(locale, ['common']);
+  return {
+    props: {
+      ...translations,
+    },
+  };
+};
+
+
 
 export default function Index() {
   const { showToast } = useToast();

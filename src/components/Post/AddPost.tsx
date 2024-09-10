@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import RippleButton from "../Button/RippleButton";
 import { useToast } from "../../context/ToastContext";
+import { useTranslation,  } from "next-i18next";
 
 const ImageUploader: React.FC = () => {
   const [images, setImages] = useState<(string | null)[]>([null, null]);
@@ -8,6 +9,7 @@ const ImageUploader: React.FC = () => {
     useRef<HTMLInputElement>(null),
     useRef<HTMLInputElement>(null),
   ];
+  const { t } = useTranslation('common');
 
   const handleImageChange = (
     index: number,
@@ -49,7 +51,6 @@ const ImageUploader: React.FC = () => {
       inputRefs[index].current.click();
     }
   };
-
   return (
     <div className="img-uploader flex flex-col md:flex-row gap-4 justify-center">
       {images.map((image, index) => (
@@ -81,7 +82,7 @@ const ImageUploader: React.FC = () => {
               </button>
             </div>
           ) : (
-            <span className="btn-text-upload-img">點擊上傳圖片</span>
+            <span className="btn-text-upload-img">{t('ClickUpload')}</span>
           )}
           <input
             type="file"

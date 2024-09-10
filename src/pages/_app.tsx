@@ -1,3 +1,4 @@
+import '../i18n';
 import { AppProps } from "next/app";
 import Layout from "../components/Layout/Layout";
 import { appWithTranslation } from "next-i18next";

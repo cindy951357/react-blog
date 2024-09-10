@@ -3,5 +3,7 @@ module.exports = {
     locales: ['en', 'zh'],
     defaultLocale: 'en',
   },
+  fallbackLng: {
+    default: ['en'],
+  },
 };
-  
