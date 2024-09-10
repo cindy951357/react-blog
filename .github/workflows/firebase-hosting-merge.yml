@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: Checkout repository
-        uses: actions/checkout@v4
+         uses: actions/checkout@v4
 
-      - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
+       - name: Deploy to Firebase Hosting
+         uses: FirebaseExtended/action-hosting-deploy@v0
+         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_REACT_BLOG_FE082 }}"
           channelId: live
           projectId: react-blog-fe082
-        env:
+         env:
           FIREBASE_CLI_EXPERIMENTS: webframeworks  # 啟用 Web 框架支持
