@@ -61,3 +61,298 @@
 [debug] [2024-07-24T02:16:33.836Z] Error: ENOENT: no such file or directory, open 'C:\Users\USER\Desktop\CodeProjects\ReactProjects\react-blog\.next\export-marker.json'
 [error] 
 [error] Error: An unexpected error has occurred.
+[debug] [2024-09-10T06:47:54.453Z] ----------------------------------------------------------------------
+[debug] [2024-09-10T06:47:54.455Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-09-10T06:47:54.456Z] CLI Version:   13.13.0
+[debug] [2024-09-10T06:47:54.456Z] Platform:      win32
+[debug] [2024-09-10T06:47:54.456Z] Node Version:  v18.19.0
+[debug] [2024-09-10T06:47:54.457Z] Time:          Tue Sep 10 2024 14:47:54 GMT+0800 (台北標準時間)
+[debug] [2024-09-10T06:47:54.458Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-10T06:47:54.472Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-09-10T06:47:54.645Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-10T06:47:54.646Z] > authorizing via signed-in user (cindy951357@gmail.com)
+[debug] [2024-09-10T06:47:54.646Z] [iam] checking project react-blog-fe082 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-09-10T06:47:54.647Z] > refreshing access token with scopes: []
+[debug] [2024-09-10T06:47:54.649Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-09-10T06:47:54.649Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-09-10T06:47:54.879Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-09-10T06:47:54.879Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-09-10T06:47:54.905Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions [none]
+[debug] [2024-09-10T06:47:54.905Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions x-goog-quota-user=projects/react-blog-fe082
+[debug] [2024-09-10T06:47:54.906Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-10T06:47:55.166Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-09-10T06:47:55.166Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-09-10T06:47:56.362Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions 200
+[debug] [2024-09-10T06:47:56.363Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-10T06:47:56.363Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-09-10T06:47:56.364Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-10T06:47:57.244Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-09-10T06:47:57.244Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-10T06:47:57.247Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 [none]
+[debug] [2024-09-10T06:47:58.039Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 200
+[debug] [2024-09-10T06:47:58.039Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 {"projectId":"react-blog-fe082","projectNumber":"719505269512","displayName":"react-blog","name":"projects/react-blog-fe082","resources":{"hostingSite":"react-blog-fe082"},"state":"ACTIVE","etag":"1_8b3376c6-ead6-40ee-a3cf-e1866fa61872"}
+[debug] [2024-09-10T06:48:01.302Z] defaultcredentials: writing to file C:\Users\USER\AppData\Roaming\firebase\cindy951357_gmail_com_application_default_credentials.json
+[debug] [2024-09-10T06:48:01.304Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites pageToken=&pageSize=10
+[debug] [2024-09-10T06:48:02.319Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 200
+[debug] [2024-09-10T06:48:02.319Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites {"sites":[{"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-09-10T06:48:02.319Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 
+[debug] [2024-09-10T06:48:03.137Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 200
+[debug] [2024-09-10T06:48:03.137Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites {"sites":[{"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-09-10T06:48:03.138Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config [none]
+[debug] [2024-09-10T06:48:04.019Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config 200
+[debug] [2024-09-10T06:48:04.019Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config {"projectId":"react-blog-fe082","storageBucket":"react-blog-fe082.appspot.com","apiKey":"AIzaSyDdMFpvGGqwbJBbzllHOhMbViobSkUQkuE","authDomain":"react-blog-fe082.firebaseapp.com","messagingSenderId":"719505269512"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-09-10T06:48:11.992Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 [none]
+[debug] [2024-09-10T06:48:12.408Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 200
+[debug] [2024-09-10T06:48:12.409Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 {"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.4
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info] Failed to compile.
+
+
+[info] ./src/components/PostList.tsx:3:10
+Type error: '"../mockData"' has no exported member named 'MOCK_POST'. Did you mean 'MOCK_POSTS'?
+
+  1 | import React from "react";
+  2 | import { PostContent } from "./PostContent";
+> 3 | import { MOCK_POST } from "../mockData";
+    |          ^
+  4 | import Image from "next/image";
+  5 | import GlowButton from "./Button/GlowButton";
+  6 |
+
+[debug] [2024-09-10T06:48:45.942Z] Error: ENOENT: no such file or directory, open 'C:\Users\USER\Desktop\CodeProjects\ReactProjects\react-blog\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-09-10T06:50:31.473Z] ----------------------------------------------------------------------
+[debug] [2024-09-10T06:50:31.475Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-09-10T06:50:31.475Z] CLI Version:   13.13.0
+[debug] [2024-09-10T06:50:31.475Z] Platform:      win32
+[debug] [2024-09-10T06:50:31.475Z] Node Version:  v18.19.0
+[debug] [2024-09-10T06:50:31.476Z] Time:          Tue Sep 10 2024 14:50:31 GMT+0800 (台北標準時間)
+[debug] [2024-09-10T06:50:31.476Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-10T06:50:31.531Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-10T06:50:31.531Z] > authorizing via signed-in user (cindy951357@gmail.com)
+[debug] [2024-09-10T06:50:31.531Z] [iam] checking project react-blog-fe082 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-09-10T06:50:31.533Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions [none]
+[debug] [2024-09-10T06:50:31.533Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions x-goog-quota-user=projects/react-blog-fe082
+[debug] [2024-09-10T06:50:31.533Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-10T06:50:31.877Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions 200
+[debug] [2024-09-10T06:50:31.878Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-10T06:50:31.878Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-09-10T06:50:31.878Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-10T06:50:33.275Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-09-10T06:50:33.275Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-10T06:50:33.278Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 [none]
+[debug] [2024-09-10T06:50:33.909Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 200
+[debug] [2024-09-10T06:50:33.910Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 {"projectId":"react-blog-fe082","projectNumber":"719505269512","displayName":"react-blog","name":"projects/react-blog-fe082","resources":{"hostingSite":"react-blog-fe082"},"state":"ACTIVE","etag":"1_8b3376c6-ead6-40ee-a3cf-e1866fa61872"}
+[debug] [2024-09-10T06:50:37.363Z] defaultcredentials: writing to file C:\Users\USER\AppData\Roaming\firebase\cindy951357_gmail_com_application_default_credentials.json
+[debug] [2024-09-10T06:50:37.368Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites pageToken=&pageSize=10
+[debug] [2024-09-10T06:50:38.080Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 200
+[debug] [2024-09-10T06:50:38.080Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites {"sites":[{"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-09-10T06:50:38.080Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 
+[debug] [2024-09-10T06:50:38.718Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 200
+[debug] [2024-09-10T06:50:38.718Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites {"sites":[{"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-09-10T06:50:38.719Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config [none]
+[debug] [2024-09-10T06:50:39.622Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config 200
+[debug] [2024-09-10T06:50:39.622Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config {"projectId":"react-blog-fe082","storageBucket":"react-blog-fe082.appspot.com","apiKey":"AIzaSyDdMFpvGGqwbJBbzllHOhMbViobSkUQkuE","authDomain":"react-blog-fe082.firebaseapp.com","messagingSenderId":"719505269512"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-09-10T06:50:46.475Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 [none]
+[debug] [2024-09-10T06:50:47.098Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 200
+[debug] [2024-09-10T06:50:47.098Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 {"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.4
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[info] uncaughtException [Error: EPERM: operation not permitted, open 'C:\Users\USER\Desktop\CodeProjects\ReactProjects\react-blog\.next\trace'] {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'open',
+  path: 'C:\\Users\\USER\\Desktop\\CodeProjects\\ReactProjects\\react-blog\\.next\\trace'
+}
+
+[debug] [2024-09-10T06:50:58.832Z] Error: ENOENT: no such file or directory, open 'C:\Users\USER\Desktop\CodeProjects\ReactProjects\react-blog\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-09-10T06:52:03.791Z] ----------------------------------------------------------------------
+[debug] [2024-09-10T06:52:03.793Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-09-10T06:52:03.794Z] CLI Version:   13.13.0
+[debug] [2024-09-10T06:52:03.794Z] Platform:      win32
+[debug] [2024-09-10T06:52:03.794Z] Node Version:  v18.19.0
+[debug] [2024-09-10T06:52:03.795Z] Time:          Tue Sep 10 2024 14:52:03 GMT+0800 (台北標準時間)
+[debug] [2024-09-10T06:52:03.796Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-10T06:52:03.905Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-10T06:52:03.905Z] > authorizing via signed-in user (cindy951357@gmail.com)
+[debug] [2024-09-10T06:52:03.905Z] [iam] checking project react-blog-fe082 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-09-10T06:52:03.907Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions [none]
+[debug] [2024-09-10T06:52:03.908Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions x-goog-quota-user=projects/react-blog-fe082
+[debug] [2024-09-10T06:52:03.908Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-10T06:52:05.423Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions 200
+[debug] [2024-09-10T06:52:05.424Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-10T06:52:05.424Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-09-10T06:52:05.425Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-10T06:52:06.764Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-09-10T06:52:06.764Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-10T06:52:06.766Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 [none]
+[debug] [2024-09-10T06:52:08.751Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 200
+[debug] [2024-09-10T06:52:08.751Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 {"projectId":"react-blog-fe082","projectNumber":"719505269512","displayName":"react-blog","name":"projects/react-blog-fe082","resources":{"hostingSite":"react-blog-fe082"},"state":"ACTIVE","etag":"1_8b3376c6-ead6-40ee-a3cf-e1866fa61872"}
+[debug] [2024-09-10T06:52:13.585Z] defaultcredentials: writing to file C:\Users\USER\AppData\Roaming\firebase\cindy951357_gmail_com_application_default_credentials.json
+[debug] [2024-09-10T06:52:13.588Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites pageToken=&pageSize=10
+[debug] [2024-09-10T06:52:14.917Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 200
+[debug] [2024-09-10T06:52:14.918Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites {"sites":[{"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-09-10T06:52:14.919Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 
+[debug] [2024-09-10T06:52:15.617Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 200
+[debug] [2024-09-10T06:52:15.617Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites {"sites":[{"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-09-10T06:52:15.618Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config [none]
+[debug] [2024-09-10T06:52:16.702Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config 200
+[debug] [2024-09-10T06:52:16.702Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config {"projectId":"react-blog-fe082","storageBucket":"react-blog-fe082.appspot.com","apiKey":"AIzaSyDdMFpvGGqwbJBbzllHOhMbViobSkUQkuE","authDomain":"react-blog-fe082.firebaseapp.com","messagingSenderId":"719505269512"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-09-10T06:52:31.027Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 [none]
+[debug] [2024-09-10T06:52:31.699Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 200
+[debug] [2024-09-10T06:52:31.699Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 {"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.4
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info] Failed to compile.
+
+
+[info] ./src/components/PostList.tsx:10:23
+Type error: Argument of type '(post: PostContent) => React.JSX.Element' is not assignable to parameter of type '(value: { id: number; postTitle: string; content: string; time: string; numLikes: number; imgUrls: string[]; }, index: number, array: { id: number; postTitle: string; content: string; time: string; numLikes: number; imgUrls: string[]; }[]) => Element'.
+  Types of parameters 'post' and 'value' are incompatible.
+    Type '{ id: number; postTitle: string; content: string; time: string; numLikes: number; imgUrls: string[]; }' is missing the following properties from type 'PostContent': title, imgURL
+
+   8 |   return (
+   9 |     <div className="post-list">
+> 10 |       {MOCK_POSTS.map((post: PostContent) => (
+     |                       ^
+  11 |         <div key={post.id} className="post bg-white p-4 shadow-md mb-4">
+  12 |           <h2 className="post-title text-xl font-bold mb-2">
+  13 |             <GlowButton btnText={post.title} color="LavenderBlush" />
+
+[debug] [2024-09-10T06:52:54.381Z] Error: ENOENT: no such file or directory, open 'C:\Users\USER\Desktop\CodeProjects\ReactProjects\react-blog\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-09-10T06:54:57.130Z] ----------------------------------------------------------------------
+[debug] [2024-09-10T06:54:57.131Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-09-10T06:54:57.132Z] CLI Version:   13.13.0
+[debug] [2024-09-10T06:54:57.132Z] Platform:      win32
+[debug] [2024-09-10T06:54:57.132Z] Node Version:  v18.19.0
+[debug] [2024-09-10T06:54:57.132Z] Time:          Tue Sep 10 2024 14:54:57 GMT+0800 (台北標準時間)
+[debug] [2024-09-10T06:54:57.133Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-10T06:54:57.189Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-10T06:54:57.189Z] > authorizing via signed-in user (cindy951357@gmail.com)
+[debug] [2024-09-10T06:54:57.189Z] [iam] checking project react-blog-fe082 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-09-10T06:54:57.192Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions [none]
+[debug] [2024-09-10T06:54:57.192Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions x-goog-quota-user=projects/react-blog-fe082
+[debug] [2024-09-10T06:54:57.192Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-10T06:54:58.012Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions 200
+[debug] [2024-09-10T06:54:58.012Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-blog-fe082:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-10T06:54:58.012Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-09-10T06:54:58.012Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-10T06:54:59.736Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-09-10T06:54:59.736Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/react-blog-fe082/serviceAccounts/react-blog-fe082@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-10T06:54:59.737Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 [none]
+[debug] [2024-09-10T06:55:00.554Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 200
+[debug] [2024-09-10T06:55:00.554Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082 {"projectId":"react-blog-fe082","projectNumber":"719505269512","displayName":"react-blog","name":"projects/react-blog-fe082","resources":{"hostingSite":"react-blog-fe082"},"state":"ACTIVE","etag":"1_8b3376c6-ead6-40ee-a3cf-e1866fa61872"}
+[debug] [2024-09-10T06:55:04.105Z] defaultcredentials: writing to file C:\Users\USER\AppData\Roaming\firebase\cindy951357_gmail_com_application_default_credentials.json
+[debug] [2024-09-10T06:55:04.109Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites pageToken=&pageSize=10
+[debug] [2024-09-10T06:55:04.627Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 200
+[debug] [2024-09-10T06:55:04.627Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites {"sites":[{"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-09-10T06:55:04.628Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 
+[debug] [2024-09-10T06:55:05.315Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites 200
+[debug] [2024-09-10T06:55:05.315Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites {"sites":[{"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-09-10T06:55:05.316Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config [none]
+[debug] [2024-09-10T06:55:06.183Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config 200
+[debug] [2024-09-10T06:55:06.184Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-blog-fe082/webApps/-/config {"projectId":"react-blog-fe082","storageBucket":"react-blog-fe082.appspot.com","apiKey":"AIzaSyDdMFpvGGqwbJBbzllHOhMbViobSkUQkuE","authDomain":"react-blog-fe082.firebaseapp.com","messagingSenderId":"719505269512"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-09-10T06:55:13.351Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 [none]
+[debug] [2024-09-10T06:55:14.027Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 200
+[debug] [2024-09-10T06:55:14.027Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/react-blog-fe082/sites/react-blog-fe082 {"name":"projects/react-blog-fe082/sites/react-blog-fe082","defaultUrl":"https://react-blog-fe082.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.4
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info] Failed to compile.
+
+
+[info] ./src/pages/index.tsx:8:40
+Type error: Binding element 'locale' implicitly has an 'any' type.
+
+   6 | import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+   7 |
+>  8 | export const getStaticProps = async ({ locale }) => {
+     |                                        ^
+   9 |   const translations = await serverSideTranslations(locale, ['common']);
+  10 |   return {
+  11 |     props: {
+
+[debug] [2024-09-10T06:55:27.739Z] Error: ENOENT: no such file or directory, open 'C:\Users\USER\Desktop\CodeProjects\ReactProjects\react-blog\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.

@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import CommentList from "../components/Comment/CommentList";
 import PostList from "../components/Post/PostList";
 import { useToast } from "@/context/ToastContext";
-import { GetStaticProps, GetStaticPropsContext } from 'next';
+import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-export const getStaticProps = async ({ locale }) => {
+export const getStaticProps = async (context: GetStaticPropsContext) => {
+  const locale = context.locale || 'en';
   const translations = await serverSideTranslations(locale, ['common']);
   return {
     props: {
