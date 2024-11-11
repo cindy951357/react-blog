@@ -1,4 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+'use client'
+
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from 'next/navigation';
 import { useToast } from "../../context/ToastContext";
 import { useTranslation,  } from "next-i18next";
@@ -144,6 +146,7 @@ const AddPost = ({}) => {
     imageError: [[false, ''],]
   });
   const router = useRouter();
+  const [prevPostsLen, setPrevPostLen] = useState<number>(posts.length);
 
   const { showToast } = useToast();
 
@@ -156,7 +159,7 @@ const AddPost = ({}) => {
     });
   };
 
-  const onContentChange = (event) => {
+  const onContentChange = (event:React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputPost(oldInput => {
       return {
         ...oldInput,
@@ -172,14 +175,19 @@ const AddPost = ({}) => {
   const handleSave = async() => {
     //驗證輸入合法性
     validateInput();
-
     await addPost(inputPost);
+    setIstEditStatusLocked(true);
     showToast(`Post saved successfully! length now is ${posts.length}`);
+    await delay(4000);
   };
   
+
   useEffect(() => {
-    console.log(`AddPost.tsx posts updated ${posts.length}`);
-  }, [posts]);
+    // console.log(`AddPost.tsx posts updated ${posts.length}; prevPostsLen ${prevPostsLen}`);
+    if(posts.length > prevPostsLen) {
+      router.push('/');
+    }    
+  }, [posts.length, isEditStatusLocked]);
 
   return (
     <div className="add-post flex justify-center">

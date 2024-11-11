@@ -1,5 +1,5 @@
 import { MOCK_POSTS } from "@/mockData";
-import React, { createContext, useState, useContext, ReactNode, SetStateAction } from "react";
+import React, { createContext, useState, useContext, ReactNode, useEffect, useCallback, } from "react";
 import { IPost, } from "@/interfaces/PostInterface";
 interface IPostContext {
   posts: IPost[];
@@ -24,15 +24,17 @@ export const PostProvider: React.FC<{ children: ReactNode }> = ({ children, }) =
   const [currentPost, setCurrentPost] = useState<IPost | null>(null);
 
   const addPost = (newPost: IPost) => {
-    console.log(`newPost ${newPost.content}`)
-    setPosts((oldPosts) => (
-      [newPost, ...oldPosts]
-    ));
+    setPosts((oldPosts) => {
+      localStorage.setItem('posts', JSON.stringify([newPost, ...oldPosts]));
+      console.log(`setter context, newPost ${newPost.content}`)
+      return [newPost, ...oldPosts]
+    });    
   };
 
   const getPostById = (id: string) => {
     return posts.find((p) => p.id === id);
   };
+
 
   return (
     <PostContext.Provider

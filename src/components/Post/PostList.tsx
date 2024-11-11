@@ -1,26 +1,36 @@
-import React, { useEffect } from "react";
+'use client'
+
+import React, { useEffect, useState } from "react";
 import { IPost, } from "@/interfaces/PostInterface";
-import { MOCK_POSTS } from "../../mockData";
 import RippleButton from "../Button/RippleButton";
 import Link from "next/link";
-import { usePosts, PostProvider,  } from "@/context/PostContext";
+import { usePosts,  } from "@/context/PostContext";
 
 const PostList: React.FC = () => {
   const { posts, setCurrentPost, getPostById, currentPost } = usePosts();
-
+  const [postsFromLocal, setPosts] = useState([]);
+  
   const handlePostClick = (postId: string) => {
     const clickedPost: IPost | undefined = getPostById(postId);
     if (clickedPost) {
       setCurrentPost(clickedPost);
     }
   };
-
+  const setPostsInitialState = () => {
+    const postsTmp = localStorage.getItem('posts');
+    // 決定來源採用自localStorage還是useContext
+    const postDecided = postsTmp ? JSON.parse(postsTmp) : posts;
+    console.log(`postDecided.length ${postDecided.length}`);
+    setPosts(postDecided);
+  };
+  
   useEffect(() => {
-    console.log("useEffect useContext posts.length", posts.length);
-  }, [posts.length]);
+    setPostsInitialState();
+  }, []);
+  
   return (
     <div className="post-list">
-      {posts.map((post: IPost) => (
+      {postsFromLocal.map((post: IPost) => (
         <div
           key={post.id}
           className="post bg-white p-4 mb-4 border-b border-b-gray"

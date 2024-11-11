@@ -5,8 +5,10 @@ import { appWithTranslation } from "next-i18next";
 import AppProvider from "@/context/AppProvider";
 import "../app/globals.css";
 import "../app/animation.css";
+import { usePosts } from '@/context/PostContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  
   return (
     <AppProvider>
       <Layout>

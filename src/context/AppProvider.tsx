@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { ActivePageProvider } from "./ActivePageContext";
 import { CommentProvider } from "./CommentContext";
 import { ToastProvider } from "./ToastContext";
-import { PostProvider } from "./PostContext";
+import { PostProvider, usePosts } from "./PostContext";
 
 interface AppProviderProps {
   children: ReactNode;
@@ -14,7 +14,9 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       <ActivePageProvider>
         <CommentProvider>
           <ToastProvider>
-            <PostProvider>{children}</PostProvider>
+            <PostProvider>
+              {children}              
+            </PostProvider>
           </ToastProvider>
         </CommentProvider>
       </ActivePageProvider>
