@@ -1,14 +1,13 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import { useToast } from "../../context/ToastContext";
 import { useTranslation,  } from "next-i18next";
 import { MAX_POST_TITLE_LENGTH } from "@/constant";
 import { IErrorPost, IPost, } from "@/interfaces/PostInterface";
 import RippleButton from "../Button/RippleButton";
-import { usePosts } from "@/context/PostContext";
+import { PostProvider, usePosts } from "@/context/PostContext";
 import { v4 as uuidv4 } from 'uuid';
 import { delay, } from '@/util/timeUtil';
-import Post from './../../pages/post/[id]';
 
 const ImageUploader: React.FC = () => {
   const [images, setImages] = useState<(string | null)[]>([null, null]);
@@ -127,7 +126,7 @@ const ImageUploader: React.FC = () => {
 // 可以打開上傳圖片的對話框，選擇圖片後可以預覽圖片，並且可以在圖片的右上方點擊 X 按鈕來刪除圖片。
 
 const AddPost = ({}) => {
-  const { addPost, } = usePosts();
+  const { addPost, posts, } = usePosts();
   const [inputPost, setInputPost] = useState<IPost>(
     {
       id: uuidv4(),
@@ -157,6 +156,15 @@ const AddPost = ({}) => {
     });
   };
 
+  const onContentChange = (event) => {
+    setInputPost(oldInput => {
+      return {
+        ...oldInput,
+        content: event.target.value,
+      }
+    });
+  };
+
   const validateInput = () => {
     //TODO:
   };
@@ -165,16 +173,18 @@ const AddPost = ({}) => {
     //驗證輸入合法性
     validateInput();
 
-
     await addPost(inputPost);
-    showToast("Post saved successfully!");
-    await delay(2000);
-    router.push('/');
+    showToast(`Post saved successfully! length now is ${posts.length}`);
   };
+  
+  useEffect(() => {
+    console.log(`AddPost.tsx posts updated ${posts.length}`);
+  }, [posts]);
 
   return (
     <div className="add-post flex justify-center">
       <div className="input-add-post w-full h-full flex rounded-xl flex-col gap-4 justilfy-center">
+      {/* <div className="text-lg">{posts.length}</div> TODO: DELETE THIS*/}
       <div className="input-titile-and-error">
         <input value={inputPost.postTitle} type="text" name="input-post-title" autoFocus={true} id="input_post_title" 
           className="w-full rounded-xxl outline-none border-2 border-gray text-lg h-10 p-4"
@@ -186,7 +196,7 @@ const AddPost = ({}) => {
           {errorPost.titleError[1]}
         </span>
       </div>      
-        <textarea
+        <textarea value={inputPost.content} onChange={event => {onContentChange(event)}}
           className="textarea-post text-left flex outline-none w-full h-60 md:h-100
             p-4 rounded-xxl resize-none border-2 border-gray bg-[#ffffff]"
             disabled={isEditStatusLocked}

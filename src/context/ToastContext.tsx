@@ -31,6 +31,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
     setToast({ message });
     setTimeout(() => setToast(null), 3000);
   }, []);
+  // 區分成有toast與沒toast兩大部分
   return (
     <ToastContext.Provider value={{ showToast }}>
       <div className="relative toast-parent">

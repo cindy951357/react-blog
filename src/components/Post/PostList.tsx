@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { IPost } from "@/interfaces/IPost";
+import { IPost, } from "@/interfaces/PostInterface";
 import { MOCK_POSTS } from "../../mockData";
 import RippleButton from "../Button/RippleButton";
 import Link from "next/link";
-import { usePosts } from "@/context/PostContext";
+import { usePosts, PostProvider,  } from "@/context/PostContext";
 
 const PostList: React.FC = () => {
   const { posts, setCurrentPost, getPostById, currentPost } = usePosts();
@@ -16,8 +16,8 @@ const PostList: React.FC = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect posts", posts);
-  }, [setCurrentPost, posts]);
+    console.log("useEffect useContext posts.length", posts.length);
+  }, [posts.length]);
   return (
     <div className="post-list">
       {posts.map((post: IPost) => (

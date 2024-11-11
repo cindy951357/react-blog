@@ -1,7 +1,7 @@
 import { MOCK_POSTS } from "@/mockData";
-import React, { createContext, useState, useContext, ReactNode } from "react";
+import React, { createContext, useState, useContext, ReactNode, SetStateAction } from "react";
 import { IPost, } from "@/interfaces/PostInterface";
-interface PostContextProps {
+interface IPostContext {
   posts: IPost[];
   addPost: (post: IPost) => void;
   currentPost: IPost | null;
@@ -9,7 +9,7 @@ interface PostContextProps {
   getPostById: (id: string) => IPost | undefined;
 }
 
-const PostContext = createContext<PostContextProps | undefined>(undefined);
+const PostContext = createContext<IPostContext | undefined>(undefined);
 
 export const usePosts = () => {
   const context = useContext(PostContext);
@@ -19,14 +19,15 @@ export const usePosts = () => {
   return context;
 };
 
-export const PostProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
+export const PostProvider: React.FC<{ children: ReactNode }> = ({ children, }) => {
   const [posts, setPosts] = useState<IPost[]>([...MOCK_POSTS]);
   const [currentPost, setCurrentPost] = useState<IPost | null>(null);
 
   const addPost = (newPost: IPost) => {
-    setPosts([...posts, newPost]);
+    console.log(`newPost ${newPost.content}`)
+    setPosts((oldPosts) => (
+      [newPost, ...oldPosts]
+    ));
   };
 
   const getPostById = (id: string) => {
