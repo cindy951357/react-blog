@@ -1,7 +1,14 @@
 import React, { useState, useRef } from "react";
-import RippleButton from "../Button/RippleButton";
+import { useRouter } from 'next/navigation';
 import { useToast } from "../../context/ToastContext";
 import { useTranslation,  } from "next-i18next";
+import { MAX_POST_TITLE_LENGTH } from "@/constant";
+import { IErrorPost, IPost, } from "@/interfaces/PostInterface";
+import RippleButton from "../Button/RippleButton";
+import { usePosts } from "@/context/PostContext";
+import { v4 as uuidv4 } from 'uuid';
+import { delay, } from '@/util/timeUtil';
+import Post from './../../pages/post/[id]';
 
 const ImageUploader: React.FC = () => {
   const [images, setImages] = useState<(string | null)[]>([null, null]);
@@ -120,19 +127,69 @@ const ImageUploader: React.FC = () => {
 // 可以打開上傳圖片的對話框，選擇圖片後可以預覽圖片，並且可以在圖片的右上方點擊 X 按鈕來刪除圖片。
 
 const AddPost = ({}) => {
+  const { addPost, } = usePosts();
+  const [inputPost, setInputPost] = useState<IPost>(
+    {
+      id: uuidv4(),
+      postTitle: '',
+      content: '',
+      time: '',
+      imgUrls: [],
+      numLikes: 0,
+    }
+  );
+  const [isEditStatusLocked, setIstEditStatusLocked] = useState(false);
+  const [errorPost, setPostError] = useState<IErrorPost>({
+    titleError: [false, 'Title cannot be empty.'],
+    contentError: [false, ''],
+    imageError: [[false, ''],]
+  });
+  const router = useRouter();
+
   const { showToast } = useToast();
 
-  const handleSave = () => {
-    // 保存操作邏輯
+  const onTitleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+    setInputPost(oldInput => {
+      return {
+        ...oldInput,
+        postTitle: event.target.value,
+      }
+    });
+  };
+
+  const validateInput = () => {
+    //TODO:
+  };
+
+  const handleSave = async() => {
+    //驗證輸入合法性
+    validateInput();
+
+
+    await addPost(inputPost);
     showToast("Post saved successfully!");
+    await delay(2000);
+    router.push('/');
   };
 
   return (
     <div className="add-post flex justify-center">
       <div className="input-add-post w-full h-full flex rounded-xl flex-col gap-4 justilfy-center">
+      <div className="input-titile-and-error">
+        <input value={inputPost.postTitle} type="text" name="input-post-title" autoFocus={true} id="input_post_title" 
+          className="w-full rounded-xxl outline-none border-2 border-gray text-lg h-10 p-4"
+          onChange={(event) => {onTitleChange(event)}}
+          maxLength={MAX_POST_TITLE_LENGTH} placeholder="Title here😎"
+          disabled={isEditStatusLocked}
+        />
+        <span className='title-error flex pl-4 text-[#d15864]'>
+          {errorPost.titleError[1]}
+        </span>
+      </div>      
         <textarea
           className="textarea-post text-left flex outline-none w-full h-60 md:h-100
             p-4 rounded-xxl resize-none border-2 border-gray bg-[#ffffff]"
+            disabled={isEditStatusLocked}
         />
         <ImageUploader />
         <div

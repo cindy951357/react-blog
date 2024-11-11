@@ -1,26 +1,26 @@
 import React, { useEffect } from "react";
-import { PostInterface } from "@/interfaces/PostInterface";
+import { IPost } from "@/interfaces/IPost";
 import { MOCK_POSTS } from "../../mockData";
 import RippleButton from "../Button/RippleButton";
 import Link from "next/link";
 import { usePosts } from "@/context/PostContext";
 
 const PostList: React.FC = () => {
-  const { setCurrentPost, getPostById, currentPost } = usePosts();
+  const { posts, setCurrentPost, getPostById, currentPost } = usePosts();
 
-  const handlePostClick = (postId: number) => {
-    const clickedPost: PostInterface | undefined = getPostById(postId);
+  const handlePostClick = (postId: string) => {
+    const clickedPost: IPost | undefined = getPostById(postId);
     if (clickedPost) {
       setCurrentPost(clickedPost);
     }
   };
 
   useEffect(() => {
-    console.log("currentPost", currentPost);
-  }, [setCurrentPost, currentPost]);
+    console.log("useEffect posts", posts);
+  }, [setCurrentPost, posts]);
   return (
     <div className="post-list">
-      {MOCK_POSTS.map((post: PostInterface) => (
+      {posts.map((post: IPost) => (
         <div
           key={post.id}
           className="post bg-white p-4 mb-4 border-b border-b-gray"

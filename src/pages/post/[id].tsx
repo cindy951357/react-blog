@@ -1,8 +1,8 @@
 import PostContent from "@/components/Post/PostContent";
-import { PostInterface } from "@/interfaces/PostInterface";
+import { IPost } from "@/interfaces/IPost";
 import Image from "next/image";
 
-const Post: React.FC<PostInterface> = ({
+const Post: React.FC<IPost> = ({
   id,
   postTitle,
   content,

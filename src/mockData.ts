@@ -1,6 +1,8 @@
-export const MOCK_POSTS = [
+import { IPost } from "./interfaces/IPost";
+
+export const MOCK_POSTS: IPost[] = [
     {
-        id: 1,
+        id: '1',
         postTitle: '關於我和彩色鉛筆的故事',
         content: '拾起彩色鉛筆已經三四年左右了，然而我還是必須不斷回到灰階鉛筆的階段去磨練無彩色的功夫\
         ，方能走到彩色的世界去揮灑色彩。彩色鉛筆的色彩呈現原理有點像是油畫，都是利用顏料的立體疊加效果去產生顏\
@@ -9,7 +11,7 @@ export const MOCK_POSTS = [
         numLikes: 90,
         imgUrls: ['RabbitMug.png',]
     }, {
-        id: 2,
+        id: '2',
         postTitle: '讓生活順遂',
         content: '刻意練習的內容是\
         將生活的成功聚焦在鍛鍊出子彈習慣，而針對視覺化大腦的部分可以多加善用google keep與google calendar。',
