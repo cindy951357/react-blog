@@ -4,7 +4,7 @@ export interface IPost {
   content: string;
   time: string;
   numLikes: number;
-  imgUrls: Array<string>;
+  imgUrls: Array<any>;
 }
 
 export interface IErrorPost {

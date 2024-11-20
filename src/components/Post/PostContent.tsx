@@ -1,7 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { IRootState, } from '@/store';
+
 const PostContentComponent: React.FC = () => {
-  const currentPost = useSelector(state => state.post.currentPost);
+  const currentPost = useSelector((state: IRootState) => state.post.currentPost);
 
   if (!currentPost) {
     return <p>Post not found.</p>;
@@ -36,3 +38,7 @@ const PostContentComponent: React.FC = () => {
 };
 
 export default PostContentComponent;
+function state(state: unknown): unknown {
+  throw new Error("Function not implemented.");
+}
+

@@ -6,15 +6,17 @@ import RippleButton from "../Button/RippleButton";
 import Link from "next/link";
 // React Context API | import { usePosts,  } from "@/context/PostContext";
 import { useDispatch, useSelector, } from "react-redux";
-import { addPost, setCurrentPostById, } from '@/features/postSlice';
+import { setCurrentPostById, } from '@/features/postSlice';
 import { useRouter } from "next/router";
+import { IRootState } from "@/store";
 
 const PostList: React.FC = memo(() => {
   // React Context API | const { posts, setCurrentPost, getPostById, currentPost } = usePosts();
   const dispatch = useDispatch();
   const router = useRouter();
-  const postList = useSelector((state) => (state.post.postList));
+  const postList = useSelector((state: IRootState) => (state.post.postList));
   const [postsFromLocal, setPosts] = useState([]);
+  const [imgesSrc, setImgesSrc] = useState(['']);
   
   const handlePostClick = (postId: string) => {
     dispatch(setCurrentPostById(postId));
@@ -28,6 +30,15 @@ const PostList: React.FC = memo(() => {
     // console.log(`postDecided.length ${postDecided.length}`);
     setPosts(postDecided);
   };
+
+  const decideImagesSrc = (rawImgSrcString: string) => {
+    let finalImgSrc;
+    // 考慮到有一部份圖片來自server, 一部分則是來自blob
+    finalImgSrc = rawImgSrcString.includes('blob') 
+      ? rawImgSrcString
+      : `/images/${rawImgSrcString}`;
+    return finalImgSrc;
+  }
   
   useEffect(() => {
     setPostsInitialState();
@@ -54,7 +65,7 @@ const PostList: React.FC = memo(() => {
           <p className="post-content text-gray-700 mb-2">{post.content}</p>
           {post.imgUrls && (
             <img
-              src={`/images/${post.imgUrls[0]}`}
+              src={decideImagesSrc(post.imgUrls[0])}
               className="rounded-xl w-40 md:w-80"
               alt={post.postTitle}
             />
