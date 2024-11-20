@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, memo, } from "react";
 import CommentList from "../components/Comment/CommentList";
 import PostList from "../components/Post/PostList";
 import { useToast } from "@/context/ToastContext";
@@ -17,7 +17,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
 
 
-export default function Index() {
+export default memo(function Index() {
   const { showToast } = useToast();
 
   useEffect(() => {
@@ -48,4 +48,4 @@ export default function Index() {
       <div className="dummy home-dummy"></div>
     </div>
   );
-}
+});

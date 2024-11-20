@@ -25,8 +25,6 @@ export const PostProvider: React.FC<{ children: ReactNode }> = ({ children, }) =
 
   const addPost = (newPost: IPost) => {
     setPosts((oldPosts) => {
-      localStorage.setItem('posts', JSON.stringify([newPost, ...oldPosts]));
-      console.log(`setter context, newPost ${newPost.content}`)
       return [newPost, ...oldPosts]
     });    
   };

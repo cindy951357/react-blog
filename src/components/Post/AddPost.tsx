@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, memo } from "react";
 import { useRouter } from 'next/navigation';
 import { useToast } from "../../context/ToastContext";
 import { useTranslation,  } from "next-i18next";
@@ -127,11 +127,12 @@ const ImageUploader: React.FC = () => {
 // 這樣的實現方式可以確保虛線框框和預覽圖片都是正方形，並且大小一致。這樣，當點擊 div 後，
 // 可以打開上傳圖片的對話框，選擇圖片後可以預覽圖片，並且可以在圖片的右上方點擊 X 按鈕來刪除圖片。
 
-const AddPost = ({}) => {
+const AddPost = memo(({}) => {
+  const IDString = uuidv4();
   const { addPost, posts, } = usePosts();
   const [inputPost, setInputPost] = useState<IPost>(
     {
-      id: uuidv4(),
+      id: IDString.toString(),
       postTitle: '',
       content: '',
       time: '',
@@ -177,14 +178,15 @@ const AddPost = ({}) => {
     validateInput();
     await addPost(inputPost);
     setIstEditStatusLocked(true);
-    showToast(`Post saved successfully! length now is ${posts.length}`);
+    showToast(`Post saved successfully!`);
     await delay(4000);
   };
   
 
   useEffect(() => {
-    // console.log(`AddPost.tsx posts updated ${posts.length}; prevPostsLen ${prevPostsLen}`);
     if(posts.length > prevPostsLen) {
+      //確認陣列長度有增加才存到localStorage
+      localStorage.setItem('posts', JSON.stringify(posts));
       router.push('/');
     }    
   }, [posts.length, isEditStatusLocked]);
@@ -224,6 +226,6 @@ const AddPost = ({}) => {
       </div>
     </div>
   );
-};
+});
 
 export default AddPost;

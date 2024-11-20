@@ -1,4 +1,6 @@
+'use client'
 import '../i18n';
+import { memo, } from 'react';
 import { AppProps } from "next/app";
 import Layout from "../components/Layout/Layout";
 import { appWithTranslation } from "next-i18next";
@@ -7,7 +9,7 @@ import "../app/globals.css";
 import "../app/animation.css";
 import { usePosts } from '@/context/PostContext';
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   
   return (
     <AppProvider>
@@ -16,6 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Layout>
     </AppProvider>
   );
-}
+};
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(memo(MyApp));

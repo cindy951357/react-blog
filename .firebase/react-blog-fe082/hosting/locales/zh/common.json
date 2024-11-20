@@ -1,7 +1,8 @@
 {
-    "welcome": "歡迎來到我的部落格",
-    "latestPosts": "最新文章",
-    "latestComments": "最新留言",
-    "addPost": "新增文章",
-    "addComment": "新增留言"
-  }
+  "ClickUpload": "上傳圖片",
+  "welcome": "歡迎來到我的部落格",
+  "latestPosts": "最新文章",
+  "latestComments": "最新留言",
+  "addPost": "新增文章",
+  "addComment": "新增留言"
+}

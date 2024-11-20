@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { memo, ReactNode } from "react";
 import Menu from "./Menu";
 import { useTranslation } from "next-i18next";
 import Header from "./Header";
@@ -9,14 +9,13 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = memo(({ children }) => {
   const { t } = useTranslation("common");
   const { addPost, posts, } = usePosts();
 
 
   return (
     <div className="layout header-main-footer flex flex-col h-full">
-      {`Layout.tsx ${posts.length}`}
       <Header />
       <div className="flex menu-and-content flex-col h-full-minus-footer w-full">
         <Menu />
@@ -27,6 +26,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Footer />
     </div>
   );
-};
+});
 
 export default Layout;

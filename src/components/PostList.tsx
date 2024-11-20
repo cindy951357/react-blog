@@ -1,5 +1,4 @@
 import React from "react";
-import { PostContent } from "./PostContent";
 import { MOCK_POSTS } from "../mockData";
 import Image from "next/image";
 import GlowButton from "./Button/GlowButton";

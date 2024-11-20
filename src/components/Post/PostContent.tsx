@@ -1,8 +1,7 @@
 import React from "react";
-import { usePosts } from "@/context/PostContext";
-
+import { useSelector } from "react-redux";
 const PostContentComponent: React.FC = () => {
-  const { currentPost } = usePosts();
+  const currentPost = useSelector(state => state.post.currentPost);
 
   if (!currentPost) {
     return <p>Post not found.</p>;
