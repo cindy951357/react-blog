@@ -88,10 +88,10 @@ const AddPost = memo(({}) => {
 
   const handleSave = async() => {
     //驗證輸入合法性
-    validateInput();
-    
+    validateInput();    
     
     dispatch(addPost(inputPost));
+    setPrevPostLen(oldLen => (oldLen + 1));
     setIstEditStatusLocked(true);
     showToast(`Post saved successfully!`);
     await delay(4000);
@@ -99,8 +99,7 @@ const AddPost = memo(({}) => {
   
 
   useEffect(() => {
-    if(postsFromRedux.length > prevPostsLen) {
-      //確認陣列長度有增加才存到localStorage
+    if(isEditStatusLocked) { //假設只會全面上鎖一次
       localStorage.setItem('postsFromRedux', JSON.stringify(postsFromRedux));
       console.log('叫了幾次setItem?');
       router.push('/');
