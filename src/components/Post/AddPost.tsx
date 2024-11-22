@@ -51,6 +51,7 @@ const AddPost = memo(({}) => {
       time: '',
       imgUrls: [],
       numLikes: 0,
+      commentIds: [],
     }
   );
   const [isEditStatusLocked, setIstEditStatusLocked] = useState(false);
@@ -101,7 +102,6 @@ const AddPost = memo(({}) => {
   useEffect(() => {
     if(isEditStatusLocked) { //假設只會全面上鎖一次
       localStorage.setItem('postsFromRedux', JSON.stringify(postsFromRedux));
-      console.log('叫了幾次setItem?');
       router.push('/');
     }    
   }, [postsFromRedux.length, isEditStatusLocked]);
@@ -109,7 +109,6 @@ const AddPost = memo(({}) => {
   return (
     <div className="add-post flex justify-center">
       <div className="input-add-post w-full h-full flex rounded-xl flex-col gap-4 justilfy-center">
-      {/* <div className="text-lg">{posts.length}</div> TODO: DELETE THIS*/}
       <div className="input-titile-and-error">
         <input value={inputPost.postTitle} type="text" name="input-post-title" autoFocus={true} id="input_post_title" 
           className="w-full rounded-xxl outline-none border-2 border-gray text-lg h-10 p-4"
@@ -117,7 +116,8 @@ const AddPost = memo(({}) => {
           maxLength={MAX_POST_TITLE_LENGTH} placeholder="Title here😎"
           disabled={isEditStatusLocked}
         />
-        <span className='title-error flex pl-4 text-[#d15864]'>
+        <span className={`title-error flex pl-4 text-[#d15864] 
+          ${inputPost.postTitle.length > 0 ? 'hidden' : ''}`}>
           {errorPost.titleError[1]}
         </span>
       </div>      

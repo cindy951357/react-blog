@@ -68,7 +68,7 @@ const RippleButton: React.FC<RippleButtonProps> = ({
             }`}
         ></div>
         <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-          <span className="relative display-text break-all max-w-[200px] md:max-w-full">
+          <span className="relative display-text break-all sm:max-w-[250px] md:max-w-full">
             {displayText}
           </span>
         </div>

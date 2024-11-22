@@ -60,7 +60,7 @@ const ImageUploader: React.FC = () => {
       }
     };
     return (
-      <div className="img-uploader flex flex-col md:flex-row gap-4 justify-center">
+      <div className="img-uploader flex sm:flex-col md:flex-row gap-4 justify-center">
         {images.map((image, index) => (
           <div
             key={index}

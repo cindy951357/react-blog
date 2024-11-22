@@ -5,6 +5,7 @@ export interface IPost {
   time: string;
   numLikes: number;
   imgUrls: Array<any>;
+  commentIds: Array<string>;
 }
 
 export interface IErrorPost {
@@ -12,3 +13,11 @@ export interface IErrorPost {
   contentError: [boolean, string],
   imageError: [[boolean, string],]
 };
+
+export interface IComment {
+  id: string;
+  author: string;
+  time: string;
+  content: string;
+  numLikes: number;
+}

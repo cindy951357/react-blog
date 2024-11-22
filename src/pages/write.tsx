@@ -3,7 +3,7 @@ import React from "react";
 
 const Write: React.FC = () => {
   return (
-    <div>
+    <div className='add-post-container w-[800px]'>
       <AddPost />
     </div>
   );

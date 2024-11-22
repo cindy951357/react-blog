@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IPost, } from "@/interfaces/PostInterface";
-import { MOCK_POSTS } from "@/mockData";
+import { IPost, IComment, } from "@/interfaces/PostInterface";
+import { MOCK_POSTS, MOCK_COMMENTS, } from "@/mockData";
 
 interface PostListState {
     value: number;
     postList: IPost[];
     currentPost: IPost;
     imagesToUpload: Array<any>;
+    commentList: IComment[];
 };
 
 const initialState: PostListState = {
@@ -14,6 +15,7 @@ const initialState: PostListState = {
     postList: MOCK_POSTS,
     currentPost: MOCK_POSTS[0],
     imagesToUpload: [],
+    commentList: MOCK_COMMENTS,
 };
 
 export const postSlice = createSlice({

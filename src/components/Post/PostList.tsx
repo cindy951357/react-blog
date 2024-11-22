@@ -15,6 +15,7 @@ const PostList: React.FC = memo(() => {
   const dispatch = useDispatch();
   const router = useRouter();
   const postList = useSelector((state: IRootState) => (state.post.postList));
+  const commentList = useSelector((state: IRootState) => (state.post.commentList));
   const [postsFromLocal, setPosts] = useState([]);
   const [imgesSrc, setImgesSrc] = useState(['']);
   
@@ -47,32 +48,54 @@ const PostList: React.FC = memo(() => {
   return (
     <div className="post-list">
       {postsFromLocal.map((post: IPost) => (
-        <div
-          key={post.id}
-          className="post bg-white p-4 mb-4 border-b border-b-gray"
-        >
-          <h2 className="post-title text-xl font-bold mb-2">
-            <a onClick={() => handlePostClick(post.id)}>
-              <RippleButton
-                displayText={post.postTitle}
-                withBg={false}
-                detail={true}
-                onClick={() => {}}
+        <div className="post-and-comments flex flex-col p-4">
+          <div
+            key={post.id}
+            className="post bg-white mb-4 border-b border-b-gray"
+          >
+            <h2 className="post-title text-xl font-bold mb-2">
+              <a onClick={() => handlePostClick(post.id)}>
+                <RippleButton
+                  displayText={post.postTitle}
+                  withBg={false}
+                  detail={true}
+                  onClick={() => {}}
+                />
+              </a>
+            </h2>
+            <p className="post-time text-gray-500 text-sm mb-2">{post.time}</p>
+            <p className="post-content text-gray-700 mb-2">{post.content}</p>
+            {post.imgUrls && (
+              <img
+                src={decideImagesSrc(post.imgUrls[0])}
+                className="rounded-xl w-40 md:w-80"
+                alt={post.postTitle}
               />
-            </a>
-          </h2>
-          <p className="post-time text-gray-500 text-sm mb-2">{post.time}</p>
-          <p className="post-content text-gray-700 mb-2">{post.content}</p>
-          {post.imgUrls && (
-            <img
-              src={decideImagesSrc(post.imgUrls[0])}
-              className="rounded-xl w-40 md:w-80"
-              alt={post.postTitle}
-            />
-          )}
-          <div className="num-likes text-right text-gray-500">
-            Likes: {post.numLikes}
+            )}
+            <div className="num-likes text-right text-gray-500">
+              Likes: {post.numLikes}
+            </div>
           </div>
+          <strong>Comments</strong>
+          <section className="comment-section flex flex-col">
+            {
+              // 用這一篇post去找其下所有留言評論
+              post.commentIds.map(commentId => {
+                const curComment = commentList.find(elem => elem.id === commentId);
+                return curComment &&<div className='one-comment my-4'>
+                  <div className="content">
+                    {curComment.content}
+                  </div>
+                  <span className="author mx-2">
+                    {curComment.author}
+                  </span>
+                  <span className="time mx-2 text-stone-400">
+                    {curComment.time}
+                  </span>
+                  </div>
+              })
+            }            
+          </section>
         </div>
       ))}
     </div>
