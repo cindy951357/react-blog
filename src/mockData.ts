@@ -20,6 +20,16 @@ export const MOCK_POSTS: IPost[] = [
         numLikes: 22,
         imgUrls: ['RabbitFlower01.png'],
         commentIds: ['4', '5', '6',],
+    }, {
+        id: '2',
+        postTitle: '自我慈悲',
+        content: '對自己說感謝你\
+        我諒解我自己\
+        對自己說我心疼你',
+        time: '20241126T08:55:33',
+        numLikes: 22,
+        imgUrls: ['RabbitFlower03.png'],
+        commentIds: ['7', '8',],
     }
 ];
 

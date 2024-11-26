@@ -72,8 +72,14 @@ const PostList: React.FC = memo(() => {
                 alt={post.postTitle}
               />
             )}
-            <div className="num-likes text-right text-gray-500">
-              Likes: {post.numLikes}
+            <div className="num-likes text-right text-gray-500 w-full flex justify-end
+              items-center
+            ">
+              <img src='./images/heart-black-outline.svg' className='w-6 h-6 flex mr-4
+                cursor-pointer active:scale-125
+                transform transition-transform duration-300 ease-in-out hover:scale-125
+              '/>
+              <small className='flex'>Likes: {post.numLikes}</small>
             </div>
           </div>
           <strong>Comments</strong>

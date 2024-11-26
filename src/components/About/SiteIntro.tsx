@@ -15,28 +15,28 @@ const SiteIntroPage = () => {
       <h1 className="intro-title flex p-2 rounded-xl text-lg">
         Site Introduction
       </h1>
-      <p className="paragraph-1">
+      <div className="paragraph-1">
         {
           <h2 className="intro-title flex p-2 bg-skin rounded-xl">
             {introContent[0].title}
           </h2>
         }
         <div className="flex content p-2">{introContent[0].text}</div>
-      </p>
-      <p className="paragraph-1">
+      </div>
+      <div className="paragraph-1">
         {
-          <h2 className="intro-title flex p-2 bg-skin rounded-xl">
+          <h2 className="intro-title flex p-2 bg-skin rounded-xs">
             {introContent[1].title}
           </h2>
         }
         <div className="badges-wrapper flex content pt-2 flex-col">
           {introContent[1].badges?.map((badge) => (
-            <span className="tech-badge flex bg-success p-4 rounded-lg mx-1 mt-1">
+            <span className="tech-badge flex bg-lightskin p-4 rounded-xs mx-1 mt-1">
               {badge}
             </span>
           ))}
         </div>
-      </p>
+      </div>
     </div>
   );
 };

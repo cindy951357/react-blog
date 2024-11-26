@@ -75,9 +75,9 @@ const RippleButton: React.FC<RippleButtonProps> = ({
         {detail && (
           <div
             className="absolute top-1/2 right-0 transform -translate-y-1/2 
-          text-xs pointer-events-none"
+          text-xs pointer-events-none pr-2"
           >
-            檢視更多
+            more
           </div>
         )}
       </div>

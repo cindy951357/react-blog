@@ -8,10 +8,10 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      'mobile': '350px',
-      'tablet': '640px',
-      'laptop': '1024px',
-      'desktop': '1280px',
+      'xs': '350px',
+      'md': '640px',
+      'l': '1024px',
+      'xl': '1280px',
     },
     extend: {
       backgroundImage: {
@@ -33,9 +33,11 @@ const config: Config = {
         skin: '#ffe5c8',
         success: '#f4ffb8', //lime
         white: 'ffffff',
+        lightskin: '#faefe1',
       },
       borderRadius: {
-        'xxl': '20px', // 您可以根据需要调整这个值
+        'xs': '4px',
+        'xxl': '20px',
       },
     },
   },

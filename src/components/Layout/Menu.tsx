@@ -25,7 +25,7 @@ const Menu: React.FC = () => {
       const widths = Array.from(linkElements).map(
         (link) => (link as HTMLElement).offsetWidth
       );
-      setLinkWidths(widths);
+      setLinkWidths(widths); // 每個連結按鈕的寬度不會等長
     };
 
     updateWidths();
@@ -51,7 +51,7 @@ const Menu: React.FC = () => {
   }, [activeIndex, linkWidths]);
 
   return (
-    <div className="menu-container flex justify-center gap-2 md:grid-cols-12">
+    <div className="menu-container flex justify-center  md:grid-cols-12">
       <div className="dummy-div md:col-span-1"></div>
       <div className="md:col-span-10">
         <div className="menu flex flex-col">
@@ -102,7 +102,7 @@ const Menu: React.FC = () => {
           </div>
           {linkWidths.length === menuItems.length && (
             <div
-              className="sliding-menu-line-container flex h-1 relative m-0 p-0 mb-4
+              className="sliding-menu-line-container flex h-1 relative m-0 p-0
                 flex justify-center"
             >
               <div className="background-line w-full flex justify-center">
