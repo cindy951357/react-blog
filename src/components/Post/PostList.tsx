@@ -33,6 +33,9 @@ const PostList: React.FC = memo(() => {
   };
 
   const decideImagesSrc = (rawImgSrcString: string) => {
+    if (!rawImgSrcString) {
+      return;
+    }
     let finalImgSrc;
     // 考慮到有一部份圖片來自server, 一部分則是來自blob
     finalImgSrc = rawImgSrcString.includes('blob') 
@@ -51,7 +54,7 @@ const PostList: React.FC = memo(() => {
         <div className="post-and-comments flex flex-col p-4">
           <div
             key={post.id}
-            className="post bg-white mb-4 border-b border-b-gray"
+            className="post bg-white mb-4"
           >
             <h2 className="post-title text-xl font-bold mb-2">
               <a onClick={() => handlePostClick(post.id)}>
@@ -75,15 +78,17 @@ const PostList: React.FC = memo(() => {
             <div className="num-likes text-right text-gray-500 w-full flex justify-end
               items-center
             ">
-              <img src='./images/heart-black-outline.svg' className='w-6 h-6 flex mr-4
+              <img src='./images/heart-black-outline.svg' className='w-8 h-8 flex mr-4
                 cursor-pointer active:scale-125
                 transform transition-transform duration-300 ease-in-out hover:scale-125
               '/>
-              <small className='flex'>Likes: {post.numLikes}</small>
+              <strong className='flex'>Likes: {post.numLikes}</strong>
             </div>
           </div>
-          <strong>Comments</strong>
-          <section className="comment-section flex flex-col">
+          
+          <section className="comment-section flex flex-col p-2
+           border-b border-b-gray">
+            <strong>Comments</strong>
             {
               // 用這一篇post去找其下所有留言評論
               post.commentIds.map(commentId => {

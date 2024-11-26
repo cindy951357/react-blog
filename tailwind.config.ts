@@ -37,8 +37,14 @@ const config: Config = {
       },
       borderRadius: {
         'xs': '4px',
-        'xxl': '20px',
+        'm': '10px',
+        'lg': '16px',
+        'xl': '20px',
+        'xxl': '24px',
       },
+      zIndex: {
+        'z-999': '999',
+      }
     },
   },
   plugins: [],

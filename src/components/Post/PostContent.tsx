@@ -13,7 +13,7 @@ const PostContentComponent: React.FC = () => {
     <div
       className="post-content single-post grid
       p-6
-      xs:grid-rows-[1fr_20fr_20fr_1fr]
+      max-xs:grid-rows-[1fr_20fr_20fr_1fr]
       md:grid-cols-[1fr_20fr_1fr_1fr]
       gap-1 md:gap-2 xs:gap-2 h-full w-full
     "
