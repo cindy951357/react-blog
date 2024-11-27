@@ -1,0 +1,8 @@
+{
+    "common": {
+        "WebGreeting": "歡迎光臨馨蒂部落格"
+    },
+    "PostList": {
+        "Comments": "留言區"
+    }
+}
