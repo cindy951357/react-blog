@@ -72,6 +72,7 @@ export const MOCK_COMMENTS: IComment[] = [
         time: '2024/07/02T18:45:15',
         content: '今天早上第一次試了瑜伽，感覺整個人都輕鬆了，非常推薦給大家！',
         numLikes: 90,
+        postId: '2',
     },
     {
         id: '6',

@@ -30,7 +30,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
 
   const showToast = useCallback((message: string) => {
     setToast({ message });
-    setTimeout(() => setToast({message: ''}), 3000);
+    setTimeout(() => setToast({message: ''}), 1050);
   }, []);
   // 區分成有toast與沒toast兩大部分
   return (
