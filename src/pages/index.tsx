@@ -4,6 +4,7 @@ import PostList from "../components/Post/PostList";
 import { useToast } from "@/context/ToastContext";
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from "react-i18next";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const locale = context.locale || 'en';
@@ -18,9 +19,10 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
 export default memo(function Index() {
   const { showToast } = useToast();
+  const { t } = useTranslation('common');
 
   useEffect(() => {
-    showToast("Welcom to Cindy's Blog");
+    showToast(t('WebGreeting'));
   }, []);
 
   return (

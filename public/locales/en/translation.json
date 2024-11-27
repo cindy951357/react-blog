@@ -1,0 +1,8 @@
+{
+    "common": {
+        "WebGreeting": "Welcome to Cindy's Blog."
+    },
+    "PostList": {
+        "Comments": "Comments"
+    }
+}

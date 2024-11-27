@@ -10,9 +10,10 @@ import { setCurrentPostById, setReduxPostSourceFromLocalStorage, }
  from '@/features/postSlice';
 import { useRouter } from "next/router";
 import { IRootState } from "@/store";
+import { useTranslation } from "react-i18next";
 
 const PostList: React.FC = memo(() => {
-  // React Context API | const { posts, setCurrentPost, getPostById, currentPost } = usePosts();
+  const { t } = useTranslation('PostList');
   const dispatch = useDispatch();
   const router = useRouter();
   const postList = useSelector((state: IRootState) => (state.post.postList));
@@ -95,7 +96,7 @@ const PostList: React.FC = memo(() => {
           
           <section className="comment-section flex flex-col p-2
            border-b border-b-gray">
-            <strong>Comments</strong>
+            <strong>{t('Comments')}</strong>
             {
               // 用這一篇post去找其下所有留言評論
               post.commentIds.map(commentId => {
