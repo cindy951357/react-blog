@@ -16,6 +16,7 @@ export interface IErrorPost {
 
 export interface IComment {
   id: string;
+  postId: string;
   author: string;
   time: string;
   content: string;

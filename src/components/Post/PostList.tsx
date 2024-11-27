@@ -3,7 +3,7 @@
 import React, { memo, useEffect, useState } from "react";
 import { IPost, } from "@/interfaces/PostInterface";
 import RippleButton from "../Button/RippleButton";
-import Link from "next/link";
+import { store } from '@/store';
 // React Context API | import { usePosts,  } from "@/context/PostContext";
 import { useDispatch, useSelector, } from "react-redux";
 import { setCurrentPostById, setReduxPostSourceFromLocalStorage, }
@@ -17,9 +17,7 @@ const PostList: React.FC = memo(() => {
   const dispatch = useDispatch();
   const router = useRouter();
   const postList = useSelector((state: IRootState) => (state.post.postList));
-  const commentList = useSelector((state: IRootState) => (state.post.commentList));
-  const [postsFromLocal, setPostsFromLocal] = useState([]);
-  const [imgesSrc, setImgesSrc] = useState(['']);
+  const commentList = useSelector((state: IRootState) => (state.comment.commentList));
   
   const handlePostClick = (postId: string) => {
     dispatch(setCurrentPostById(postId));
@@ -37,7 +35,6 @@ const PostList: React.FC = memo(() => {
     } else {
       postDecided = postList;
     };
-    setPostsFromLocal(postDecided);    
   };
 
   const decideImagesSrc = (rawImgSrcString: string) => {
@@ -61,7 +58,6 @@ const PostList: React.FC = memo(() => {
       {postList.map((post: IPost) => (
         <div key={post.id} className="post-and-comments flex flex-col p-4">
           <div
-            key={post.id}
             className="post bg-white mb-4"
           >
             <h2 className="post-title text-xl font-bold mb-2">

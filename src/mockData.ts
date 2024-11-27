@@ -21,7 +21,7 @@ export const MOCK_POSTS: IPost[] = [
         imgUrls: ['RabbitFlower01.png'],
         commentIds: ['4', '5', '6',],
     }, {
-        id: '2',
+        id: '3',
         postTitle: '自我慈悲',
         content: '對自己說感謝你\
         我諒解我自己\
@@ -40,6 +40,7 @@ export const MOCK_COMMENTS: IComment[] = [
         time: '2024/07/02T15:30:30',
         content: '這超過七週以來已經看了六次耳鼻喉科了，然而咳嗽的問題遲遲沒有改善，各位美女們怎麼看呢?',
         numLikes: 50,
+        postId: '1',
     },
     {
         id: '2',
@@ -47,6 +48,7 @@ export const MOCK_COMMENTS: IComment[] = [
         time: '2024/07/02T16:19:20',
         content: '寶寶下次要記得帶藍芽喇叭來廣場這邊喔',
         numLikes: 50,
+        postId: '1',
     },
     {
         id: '3',
@@ -54,6 +56,7 @@ export const MOCK_COMMENTS: IComment[] = [
         time: '2024/07/02T17:10:45',
         content: '剛剛試了一杯Cama新出的摩卡咖啡，味道棒極了，推薦大家去試試！',
         numLikes: 80,
+        postId: '1',
     },
     {
         id: '4',
@@ -61,6 +64,7 @@ export const MOCK_COMMENTS: IComment[] = [
         time: '2024/07/02T18:05:30',
         content: '最近家裡的貓咪總是盯著天花板看，大家有什麼建議嗎？',
         numLikes: 65,
+        postId: '2',
     },
     {
         id: '5',
@@ -75,6 +79,7 @@ export const MOCK_COMMENTS: IComment[] = [
         time: '2024/07/02T19:30:00',
         content: '昨天去了海灘，陽光、沙灘和海浪，簡直是完美的一天！',
         numLikes: 100,
+        postId: '2',
     },
     {
         id: '7',
@@ -82,6 +87,7 @@ export const MOCK_COMMENTS: IComment[] = [
         time: '2024/07/02T20:15:45',
         content: '我制定了一個新的健身計劃，準備每天堅持運動，搭配拉筋、筋膜放鬆，大家一起加油！',
         numLikes: 85,
+        postId: '2',
     },
     {
         id: '8',
@@ -89,6 +95,7 @@ export const MOCK_COMMENTS: IComment[] = [
         time: '2024/07/02T21:05:30',
         content: '剛讀完一本好書，刺蝟的優雅，感覺收穫很多，真希望時間能夠停留在這一刻。',
         numLikes: 70,
+        postId: '3',
     },
     {
         id: '9',
@@ -96,6 +103,7 @@ export const MOCK_COMMENTS: IComment[] = [
         time: '2024/07/02T22:00:00',
         content: '第一次嘗試自製覆盆莓布朗尼蛋糕，沒想到居然非常成功，大家有空也可以試試哦！',
         numLikes: 75,
+        postId: '3',
     },
     {
         id: '10',
@@ -103,5 +111,6 @@ export const MOCK_COMMENTS: IComment[] = [
         time: '2024/07/02T22:45:30',
         content: '晚上去寧馨公園散步，感覺心情愉快，真是一個不錯的放鬆方式。',
         numLikes: 60,
+        postId: '3',
     }
 ];

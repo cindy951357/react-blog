@@ -32,13 +32,15 @@ const config: Config = {
         },
         skin: '#ffe5c8',
         success: '#f4ffb8', //lime
+        cancel: '#E5E7EB', // Slate-200
         white: 'ffffff',
         lightskin: '#faefe1',
       },
       borderRadius: {
         'xs': '4px',
+        's': '8px',
         'm': '10px',
-        'lg': '16px',
+        'l': '16px',
         'xl': '20px',
         'xxl': '24px',
       },

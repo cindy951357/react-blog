@@ -1,8 +1,15 @@
 {
-    "common": {
-        "WebGreeting": "Welcome to Cindy's Blog."
+    "Common": {
+        "WebGreeting": "Welcome to Cindy's Blog.",
+        "Submit": "Submit",
+        "Cancel": "Cancel"
     },
     "PostList": {
         "Comments": "Comments"
+    },
+    "Comment": {
+        "Placeholder": "Please enter your comment...",
+        "AddNew": "Add a new comment",
+        "SaveMsg": "New comment saved."
     }
 }

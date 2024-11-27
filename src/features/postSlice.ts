@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { IPost, IComment, } from "@/interfaces/PostInterface";
 import { MOCK_POSTS, MOCK_COMMENTS, } from "@/mockData";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 interface PostListState {
     value: number;
@@ -49,8 +51,22 @@ export const postSlice = createSlice({
             ];
             state.imagesToUpload = newimagesToUpload;
         },
+        addCommentToPost(state, action) {
+            const { postId, commentId, } = action.payload;
+            const postToModify = state.postList.find((p: IPost) => p.id === postId);
+            if (postToModify) {
+                // 更新 Post 的 commentIds
+                postToModify.commentIds = [...postToModify.commentIds, commentId];
+            }
+        },
     },
 });
+
+// 配置持久化
+const postPersistConfig = {
+    key: "post",
+    storage,
+};
 
 // Action creators are generated for each case reducer function
 export const {
@@ -58,6 +74,10 @@ export const {
     setCurrentPostById,
     setImagesToUpload,
     setReduxPostSourceFromLocalStorage,
+    addCommentToPost,
 } = postSlice.actions;
 
-export default postSlice.reducer;
+export default persistReducer(
+    postPersistConfig,
+    postSlice.reducer
+);

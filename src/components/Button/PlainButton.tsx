@@ -10,7 +10,7 @@ const GlowButton: React.FC<GlowButtonProps> = ({ btnText, color, onClick }) => {
       className={`plain-button rounded p-4 pb-1 mx-2`}
       onClick={onClick}
       style={{
-        backgroundColor: "",
+        backgroundColor: color,
       }}
     >
       {btnText}

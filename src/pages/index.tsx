@@ -1,4 +1,4 @@
-import { useEffect, memo, } from "react";
+import { useEffect, } from "react";
 import CommentList from "../components/Comment/CommentList";
 import PostList from "../components/Post/PostList";
 import { useToast } from "@/context/ToastContext";
@@ -17,7 +17,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 };
 
 
-export default memo(function Index() {
+export default function Index() {
   const { showToast } = useToast();
   const { t } = useTranslation('common');
 
@@ -49,4 +49,4 @@ export default memo(function Index() {
       <div className="dummy home-dummy"></div>
     </div>
   );
-});
+};

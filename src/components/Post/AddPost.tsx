@@ -9,7 +9,6 @@ import { useDispatch, useSelector, } from "react-redux";
 import { MAX_POST_TITLE_LENGTH } from "@/constant";
 import { IErrorPost, IPost, } from "@/interfaces/PostInterface";
 import RippleButton from "../Button/RippleButton";
-import { PostProvider, usePosts } from "@/context/PostContext";
 import { v4 as uuidv4 } from 'uuid';
 import { delay, } from '@/util/timeUtil';
 import { IRootState } from "@/store";
@@ -92,20 +91,15 @@ const AddPost = ({}) => {
     //驗證輸入合法性
     validateInput();    
     
-    dispatch(addPost(inputPost));
+    await dispatch(addPost(inputPost));
     setPrevPostLen(oldLen => (oldLen + 1));
     setIstEditStatusLocked(true);
-    showToast(`New post saved successfully!`);
-    await delay(4000);
+    await delay(2500);
+    showToast(`New post saved successfully!`);    
+    localStorage.setItem('postsFromRedux', JSON.stringify(postsFromRedux));
+    router.push('/');
   };
   
-
-  useEffect(() => {
-    if(isEditStatusLocked) { //假設只會全面上鎖一次
-      localStorage.setItem('postsFromRedux', JSON.stringify(postsFromRedux));
-      router.push('/');
-    }    
-  }, [isEditStatusLocked]);
 
   return (
     <div className="add-post flex justify-center">
