@@ -30,6 +30,9 @@ export const postSlice = createSlice({
                 imgUrls: state.imagesToUpload,
             }, ...state.postList];
         },
+        setReduxPostSourceFromLocalStorage: (state, action) => {
+            state.postList = [...action.payload];
+        },
         setCurrentPostById: (state, action) => {
             const currentPostId = action.payload;
             const postCandidate = state.postList.find(elem => elem.id === currentPostId);
@@ -54,6 +57,7 @@ export const {
     addPost,
     setCurrentPostById,
     setImagesToUpload,
+    setReduxPostSourceFromLocalStorage,
 } = postSlice.actions;
 
 export default postSlice.reducer;

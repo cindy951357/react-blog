@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect, memo } from "react";
+import React, { useState, useRef, useEffect, memo, useCallback } from "react";
 import { useRouter } from 'next/navigation';
 import { useToast } from "../../context/ToastContext";
 import { useTranslation,  } from "next-i18next";
@@ -38,7 +38,7 @@ import ImageUploader from "./ImageUploader";
 // 這樣的實現方式可以確保虛線框框和預覽圖片都是正方形，並且大小一致。這樣，當點擊 div 後，
 // 可以打開上傳圖片的對話框，選擇圖片後可以預覽圖片，並且可以在圖片的右上方點擊 X 按鈕來刪除圖片。
 
-const AddPost = memo(({}) => {
+const AddPost = ({}) => {
   const dispatch = useDispatch();
   const postsFromRedux = useSelector((state: IRootState) => state.post.postList);
   const IDString = uuidv4();
@@ -88,13 +88,14 @@ const AddPost = memo(({}) => {
   };
 
   const handleSave = async() => {
+    console.log('handleSave被呼叫幾次?');
     //驗證輸入合法性
     validateInput();    
     
     dispatch(addPost(inputPost));
     setPrevPostLen(oldLen => (oldLen + 1));
     setIstEditStatusLocked(true);
-    showToast(`Post saved successfully!`);
+    showToast(`New post saved successfully!`);
     await delay(4000);
   };
   
@@ -104,7 +105,7 @@ const AddPost = memo(({}) => {
       localStorage.setItem('postsFromRedux', JSON.stringify(postsFromRedux));
       router.push('/');
     }    
-  }, [postsFromRedux.length, isEditStatusLocked]);
+  }, [isEditStatusLocked]);
 
   return (
     <div className="add-post flex justify-center">
@@ -129,7 +130,6 @@ const AddPost = memo(({}) => {
         <ImageUploader />
         <div
           className="btn-save btn-bg bg-slate-100 w-full rounded-xxl relative"
-          onClick={handleSave}
         >
           <RippleButton
             displayText={"Save"}
@@ -141,6 +141,6 @@ const AddPost = memo(({}) => {
       </div>
     </div>
   );
-});
+};
 
 export default AddPost;

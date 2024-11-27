@@ -6,7 +6,8 @@ import RippleButton from "../Button/RippleButton";
 import Link from "next/link";
 // React Context API | import { usePosts,  } from "@/context/PostContext";
 import { useDispatch, useSelector, } from "react-redux";
-import { setCurrentPostById, } from '@/features/postSlice';
+import { setCurrentPostById, setReduxPostSourceFromLocalStorage, }
+ from '@/features/postSlice';
 import { useRouter } from "next/router";
 import { IRootState } from "@/store";
 
@@ -16,7 +17,7 @@ const PostList: React.FC = memo(() => {
   const router = useRouter();
   const postList = useSelector((state: IRootState) => (state.post.postList));
   const commentList = useSelector((state: IRootState) => (state.post.commentList));
-  const [postsFromLocal, setPosts] = useState([]);
+  const [postsFromLocal, setPostsFromLocal] = useState([]);
   const [imgesSrc, setImgesSrc] = useState(['']);
   
   const handlePostClick = (postId: string) => {
@@ -25,11 +26,17 @@ const PostList: React.FC = memo(() => {
   };
   
   const setPostsInitialState = () => {
-    const postsTmp = localStorage.getItem('posts');
+    const postsLocalstorageTmp = localStorage.getItem('postsFromRedux');
+    let postDecided;
     // 決定來源採用自localStorage還是useContext
-    const postDecided = postsTmp ? JSON.parse(postsTmp) : postList;
-    // console.log(`postDecided.length ${postDecided.length}`);
-    setPosts(postDecided);
+    if(postsLocalstorageTmp) {
+      postDecided = JSON.parse(postsLocalstorageTmp);
+      // 也要更新Redux資料
+      setReduxPostSourceFromLocalStorage(postDecided);
+    } else {
+      postDecided = postList;
+    };
+    setPostsFromLocal(postDecided);    
   };
 
   const decideImagesSrc = (rawImgSrcString: string) => {
@@ -50,8 +57,8 @@ const PostList: React.FC = memo(() => {
   
   return (
     <div className="post-list">
-      {postsFromLocal.map((post: IPost) => (
-        <div className="post-and-comments flex flex-col p-4">
+      {postList.map((post: IPost) => (
+        <div key={post.id} className="post-and-comments flex flex-col p-4">
           <div
             key={post.id}
             className="post bg-white mb-4"
@@ -68,7 +75,7 @@ const PostList: React.FC = memo(() => {
             </h2>
             <p className="post-time text-gray-500 text-sm mb-2">{post.time}</p>
             <p className="post-content text-gray-700 mb-2">{post.content}</p>
-            {post.imgUrls && (
+            {post.imgUrls && post.imgUrls[0] && (
               <img
                 src={decideImagesSrc(post.imgUrls[0])}
                 className="rounded-xl w-40 md:w-80"
@@ -93,7 +100,7 @@ const PostList: React.FC = memo(() => {
               // 用這一篇post去找其下所有留言評論
               post.commentIds.map(commentId => {
                 const curComment = commentList.find(elem => elem.id === commentId);
-                return curComment &&<div className='one-comment my-4'>
+                return curComment &&<div key={commentId} className='one-comment my-4'>
                   <div className="content">
                     {curComment.content}
                   </div>
