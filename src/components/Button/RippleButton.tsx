@@ -4,6 +4,7 @@ interface RippleButtonProps {
   displayText: string;
   detail: boolean;
   withBg: boolean;
+  isCentered: boolean;
   onClick: () => void;
 }
 
@@ -11,6 +12,7 @@ const RippleButton: React.FC<RippleButtonProps> = ({
   displayText,
   detail = true,
   withBg = false,
+  isCentered = false,
   onClick,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -50,7 +52,7 @@ const RippleButton: React.FC<RippleButtonProps> = ({
   return (
     <div
       className={`flex w-full justify-center items-center
-      rounded-xxl absolte ${withBg ? "bg-slate-200" : ""}`}
+      absolte ${withBg ? "bg-slate-200" : ""}`}
     >
       <div
         className={`parent relative w-full h-20 overflow-hidden cursor-pointer`}
@@ -59,7 +61,7 @@ const RippleButton: React.FC<RippleButtonProps> = ({
         onClick={handleClick}
       >
         <div
-          className={`circle absolute top-1/2 left-1/2 bg-opacity-80 rounded-xxl 
+          className={`circle absolute top-1/2 left-1/2 bg-opacity-80
             transform -translate-x-1/2 -translate-y-1/2 transition-all
             duration-500 ease ${
               isHovered
@@ -67,7 +69,9 @@ const RippleButton: React.FC<RippleButtonProps> = ({
                 : "w-0 h-0 bg-second-300"
             }`}
         ></div>
-        <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+        <div className={`absolute inset-0 flex items-center pointer-events-none
+          ${isCentered ? 'justify-center' : 'justify-start'}
+        `}>
           <span className="relative display-text break-all sm:max-w-[250px] md:max-w-full">
             {displayText}
           </span>
@@ -106,7 +110,8 @@ export default RippleButton;
 // 這樣，當使用者在行動裝置上點擊時，小圓點會擴散成撐滿矩形的效果，而在桌面裝置上則會根據滑鼠的 mouseover 和 mouseout 事件來觸發相同的效果。
 
 // -translate-x-1/2 和 -translate-y-1/2 的用途
-// -translate-x-1/2 和 -translate-y-1/2 是 Tailwind CSS 中的實用類，用於將元素在水平方向和垂直方向上分別平移自身寬度和高度的一半。其主要作用是將絕對定位的元素的中心點與其父元素的中心點對齊。
+// -translate-x-1/2 和 -translate-y-1/2 是 Tailwind CSS 中的實用類，用於將元素在水平方向和垂直方向上分別平移自身寬度和高度的一半。
+// 其主要作用是將絕對定位的元素的中心點與其父元素的中心點對齊。
 
 // 在 CSS 中，transform 屬性的 translate 函數可以用來平移元素。具體來說，-translate-x-1/2 和 -translate-y-1/2 分別相當於以下 CSS：
 

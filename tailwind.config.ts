@@ -28,7 +28,7 @@ const config: Config = {
           DEFAULT: '#f43f5e', // rose-500
         },
         second: {
-          300: '#faefd9',
+          300: '#faefd9', // light creamy
         },
         skin: '#ffe5c8',
         success: '#f4ffb8', //lime

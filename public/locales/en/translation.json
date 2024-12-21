@@ -2,7 +2,8 @@
     "Common": {
         "WebGreeting": "Welcome to Cindy's Blog.",
         "Submit": "Submit",
-        "Cancel": "Cancel"
+        "Cancel": "Cancel",
+        "ClickUpload": "Upload"
     },
     "PostList": {
         "Comments": "Comments"

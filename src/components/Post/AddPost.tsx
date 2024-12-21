@@ -130,6 +130,7 @@ const AddPost = ({}) => {
             detail={false}
             withBg={true}
             onClick={handleSave}
+            isCentered={true}
           />
         </div>
       </div>

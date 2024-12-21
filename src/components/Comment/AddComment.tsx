@@ -106,6 +106,7 @@ const AddComment: React.FC<AddCommentProps> = ({ postId, }) => {
                 detail={false}
                 withBg={true}
                 onClick={handleSubmit}
+                isCentered
             />
       </div>
     </div>

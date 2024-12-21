@@ -3,10 +3,9 @@ import { IComment, IPost } from "@/interfaces/PostInterface";
 export const MOCK_POSTS: IPost[] = [
     {
         id: '1',
-        postTitle: '關於我和彩色鉛筆的故事',
-        content: '拾起彩色鉛筆已經三四年左右了，然而我還是必須不斷回到灰階鉛筆的階段去磨練無彩色的功夫\
-        ，方能走到彩色的世界去揮灑色彩。彩色鉛筆的色彩呈現原理有點像是油畫，都是利用顏料的立體疊加效果去產生顏\
-        色上的立體感，這也是畫家必須要自己去刻意練習去成就的。',
+        postTitle: '彩色鉛筆的故事',
+        content: '彩色鉛筆的色彩呈現原理有點像是油畫，都是利用顏料的立體疊加效果去產生顏\
+        色上的立體感。',
         time: '2024/06/28T20/07/05',
         numLikes: 90,
         imgUrls: ['RabbitMug.png',],
@@ -38,7 +37,7 @@ export const MOCK_COMMENTS: IComment[] = [
         id: '1',
         author: 'nicole',
         time: '2024/07/02T15:30:30',
-        content: '這超過七週以來已經看了六次耳鼻喉科了，然而咳嗽的問題遲遲沒有改善，各位美女們怎麼看呢?',
+        content: '這超過七週以來已經看了六次耳鼻喉科了，然而咳嗽的問題遲遲沒有改善',
         numLikes: 50,
         postId: '1',
     },

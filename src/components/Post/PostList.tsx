@@ -3,16 +3,15 @@
 import React, { memo, useEffect, useState } from "react";
 import { IPost, } from "@/interfaces/PostInterface";
 import RippleButton from "../Button/RippleButton";
-import { store } from '@/store';
-// React Context API | import { usePosts,  } from "@/context/PostContext";
 import { useDispatch, useSelector, } from "react-redux";
 import { setCurrentPostById, setReduxPostSourceFromLocalStorage, }
  from '@/features/postSlice';
 import { useRouter } from "next/router";
 import { IRootState } from "@/store";
 import { useTranslation } from "react-i18next";
+import { PostListProps } from "@/interfaces/PostListInterface";
 
-const PostList: React.FC = memo(() => {
+const PostList: React.FC<PostListProps> = memo(({ showCommentList, }) => {
   const { t } = useTranslation('PostList');
   const dispatch = useDispatch();
   const router = useRouter();
@@ -56,7 +55,7 @@ const PostList: React.FC = memo(() => {
   return (
     <div className="post-list">
       {postList.map((post: IPost) => (
-        <div key={post.id} className="post-and-comments flex flex-col p-4">
+        <div key={post.id} className="post-and-comments flex flex-col py-4">
           <div
             className="post bg-white mb-4"
           >
@@ -67,6 +66,7 @@ const PostList: React.FC = memo(() => {
                   withBg={false}
                   detail={true}
                   onClick={() => {}}
+                  isCentered={false}
                 />
               </a>
             </h2>
@@ -90,7 +90,7 @@ const PostList: React.FC = memo(() => {
             </div>
           </div>
           
-          <section className="comment-section flex flex-col p-2
+          {showCommentList && <section className="comment-section flex flex-col p-2
            border-b border-b-gray">
             <strong>{t('Comments')}</strong>
             {
@@ -101,7 +101,7 @@ const PostList: React.FC = memo(() => {
                   <div className="content">
                     {curComment.content}
                   </div>
-                  <span className="author mx-2">
+                  <span className="author mr-2">
                     {curComment.author}
                   </span>
                   <span className="time mx-2 text-stone-400">
@@ -111,6 +111,7 @@ const PostList: React.FC = memo(() => {
               })
             }            
           </section>
+          }
         </div>
       ))}
     </div>
