@@ -57,7 +57,7 @@ const PostList: React.FC<PostListProps> = memo(({ showCommentList, }) => {
       {postList.map((post: IPost) => (
         <div key={post.id} className="post-and-comments flex flex-col py-4">
           <div
-            className="post bg-white mb-4"
+            className="post bg-white border-b border-gray-300 mb-4"
           >
             <h2 className="post-title text-xl font-bold mb-2">
               <a onClick={() => handlePostClick(post.id)}>
@@ -89,7 +89,7 @@ const PostList: React.FC<PostListProps> = memo(({ showCommentList, }) => {
               <strong className='flex'>Likes: {post.numLikes}</strong>
             </div>
           </div>
-          
+          {/** Conditionally render comments based on UI design*/}
           {showCommentList && <section className="comment-section flex flex-col p-2
            border-b border-b-gray">
             <strong>{t('Comments')}</strong>
@@ -97,7 +97,8 @@ const PostList: React.FC<PostListProps> = memo(({ showCommentList, }) => {
               // 用這一篇post去找其下所有留言評論
               post.commentIds.map(commentId => {
                 const curComment = commentList.find(elem => elem.id === commentId);
-                return curComment &&<div key={commentId} className='one-comment my-4'>
+                return curComment && <div key={commentId} 
+                  className='one-comment my-4 border-b border-gray-300'>
                   <div className="content">
                     {curComment.content}
                   </div>

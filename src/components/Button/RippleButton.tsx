@@ -65,8 +65,8 @@ const RippleButton: React.FC<RippleButtonProps> = ({
             transform -translate-x-1/2 -translate-y-1/2 transition-all
             duration-500 ease ${
               isHovered
-                ? "w-full h-full rounded-none bg-second-300"
-                : "w-0 h-0 bg-second-300"
+                ? "w-full h-full rounded-none bg-secondary-300"
+                : "w-0 h-0 bg-secondary-300"
             }`}
         ></div>
         <div className={`absolute inset-0 flex items-center pointer-events-none
@@ -92,9 +92,9 @@ const RippleButton: React.FC<RippleButtonProps> = ({
 export default RippleButton;
 // 類名切換：
 
-// 當 isHovered 為 true 時，應用的類名為 w-full h-full rounded-none bg-second-300，
+// 當 isHovered 為 true 時，應用的類名為 w-full h-full rounded-none bg-secondary-300，
 //這會使圓形擴展到填滿父容器並變成矩形。
-// 當 isHovered 為 false 時，應用的類名為 w-0 h-0 bg-second-300，這會使圓形縮小到幾乎不可見的大小。
+// 當 isHovered 為 false 時，應用的類名為 w-0 h-0 bg-secondary-300，這會使圓形縮小到幾乎不可見的大小。
 
 // 檢測裝置類型：
 

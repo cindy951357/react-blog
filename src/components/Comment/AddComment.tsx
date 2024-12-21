@@ -79,7 +79,7 @@ const AddComment: React.FC<AddCommentProps> = ({ postId, }) => {
                 onClick={toggleCommentBox}
                 className={`comment-toggle-btn w-full h-20
                 text-white py-2 px-4 rounded-xxl mb-4
-                ${ isVisible ? 'bg-cancel' : 'bg-second-300'}`}
+                ${ isVisible ? 'bg-cancel' : 'bg-secondary-300'}`}
             >
                 {isVisible ? t("Common.Cancel") : t("Comment.AddNew")}
             </button>

@@ -27,11 +27,12 @@ const config: Config = {
         primary: {
           DEFAULT: '#f43f5e', // rose-500
         },
-        second: {
+        secondary: {
+          100: '#fdf9f3',
           300: '#faefd9', // light creamy
         },
         skin: '#ffe5c8',
-        success: '#f4ffb8', //lime
+        success: '#f4ffb8', // lime
         cancel: '#E5E7EB', // Slate-200
         white: 'ffffff',
         lightskin: '#faefe1',

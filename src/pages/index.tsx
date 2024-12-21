@@ -37,7 +37,7 @@ export default function Index() {
     >
       <div className="dummy home-dummy"></div>
       <div className="latest-posts bg-white p-4 mr-2 rounded-xl">
-        <h2 className="text-xs font-bold mb-4">Article List</h2>
+        <h2 className="text-xs font-bold mb-4">Latest Articles</h2>
         <ul>
           <PostList showCommentList={false}/>
         </ul>

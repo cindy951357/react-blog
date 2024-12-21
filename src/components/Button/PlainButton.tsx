@@ -4,24 +4,17 @@ interface GlowButtonProps {
   onClick?: () => void;
 }
 
-const GlowButton: React.FC<GlowButtonProps> = ({ btnText, color, onClick }) => {
+const PlainButton: React.FC<GlowButtonProps> = ({ btnText, color, onClick }) => {
   return (
     <button
-      className={`plain-button rounded p-4 pb-1 mx-2`}
+      className={`plain-button cursor-pointer
+        hover:bg-secondary-100
+        p-4 pb-1`}
       onClick={onClick}
-      style={{
-        backgroundColor: color,
-      }}
-      onMouseEnter={(e) => {
-        (e.target as HTMLElement).style.backgroundColor = "LavenderBlush";
-      }}
-      onMouseLeave={(e) => {
-        (e.target as HTMLElement).style.backgroundColor = color;
-      }}
     >
       {btnText}
     </button>
   );
 };
 
-export default GlowButton;
+export default PlainButton;

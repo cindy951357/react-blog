@@ -12,12 +12,12 @@ const introContent = [
 const SiteIntroPage = () => {
   return (
     <div className="site-intro-component">
-      <h1 className="intro-title flex p-2 rounded-xl text-lg">
+      <h1 className="intro-title flex p-2 rounded-xs text-lg">
         Site Introduction
       </h1>
       <div className="paragraph-1">
         {
-          <h2 className="intro-title flex p-2 bg-skin rounded-xl">
+          <h2 className="intro-title flex p-2 bg-skin rounded-xs">
             {introContent[0].title}
           </h2>
         }
