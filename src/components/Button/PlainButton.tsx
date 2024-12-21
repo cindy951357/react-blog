@@ -1,6 +1,6 @@
 interface GlowButtonProps {
   btnText: string;
-  color: string;
+  color: string; // background color is controlled by parent component
   onClick?: () => void;
 }
 
@@ -11,6 +11,12 @@ const GlowButton: React.FC<GlowButtonProps> = ({ btnText, color, onClick }) => {
       onClick={onClick}
       style={{
         backgroundColor: color,
+      }}
+      onMouseEnter={(e) => {
+        (e.target as HTMLElement).style.backgroundColor = "LavenderBlush";
+      }}
+      onMouseLeave={(e) => {
+        (e.target as HTMLElement).style.backgroundColor = color;
       }}
     >
       {btnText}

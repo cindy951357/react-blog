@@ -61,7 +61,7 @@ const Menu: React.FC = () => {
               <a>
                 <PlainButton
                   btnText={"Home"}
-                  color={activePage === "/" ? "LavenderBlush" : "defaultColor"}
+                  color={activePage === "/" ? "LavenderBlush" : ""}
                   onClick={() => {
                     setActivePage("/");
                     navigateTo("/");
@@ -74,7 +74,7 @@ const Menu: React.FC = () => {
                 <PlainButton
                   btnText={"Write a Post"}
                   color={
-                    activePage === "/write" ? "LavenderBlush" : "defaultColor"
+                    activePage === "/write" ? "LavenderBlush" : ""
                   }
                   onClick={() => {
                     setActivePage("/write");
@@ -90,7 +90,7 @@ const Menu: React.FC = () => {
                   color={
                     activePage === "/about/site-intro"
                       ? "LavenderBlush"
-                      : "defaultColor"
+                      : ""
                   }
                   onClick={() => {
                     setActivePage("/about/site-intro");

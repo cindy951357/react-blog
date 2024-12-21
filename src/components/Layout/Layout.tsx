@@ -10,7 +10,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = memo(({ children }) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("");
   const { addPost, posts, } = usePosts();
 
 

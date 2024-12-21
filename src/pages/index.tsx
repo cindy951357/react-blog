@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const locale = context.locale || 'en';
-  const translations = await serverSideTranslations(locale, ['common']);
+  const translations = await serverSideTranslations(locale, ['translation']);
   return {
     props: {
       ...translations,
@@ -19,10 +19,12 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
 export default function Index() {
   const { showToast } = useToast();
-  const { t } = useTranslation('common');
+  const { t, ready } = useTranslation();
 
   useEffect(() => {
-    showToast(t('WebGreeting'));
+    if (ready) {
+      showToast(t('Common.WebGreeting')); // 準備就緒後才執行
+    }
   }, []);
 
   return (

@@ -1,7 +1,7 @@
 'use client'
 import '../i18n';
 import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "@/store";
+import { persistor } from "@/store";
 import { AppProps } from "next/app";
 import Layout from "../components/Layout/Layout";
 import { appWithTranslation } from "next-i18next";
@@ -14,9 +14,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <AppProvider>
       <PersistGate loading={null} persistor={persistor}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </PersistGate>
     </AppProvider>
   );

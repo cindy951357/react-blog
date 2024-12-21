@@ -10,7 +10,7 @@ const ImageUploader: React.FC = () => {
       useRef<HTMLInputElement>(null),
       useRef<HTMLInputElement>(null),
     ];
-    const { t } = useTranslation('common');
+    const { t } = useTranslation('');
   
     const handleImageChange = (
       index: number,
@@ -90,7 +90,7 @@ const ImageUploader: React.FC = () => {
                 </button>
               </div>
             ) : (
-              <span className="btn-text-upload-img">{t('ClickUpload')}</span>
+              <span className="btn-text-upload-img">{t('Common.ClickUpload')}</span>
             )}
             <input
               type="file"

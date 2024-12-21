@@ -1,8 +1,13 @@
 {
-    "common": {
+    "Common": {
         "WebGreeting": "歡迎光臨馨蒂部落格"
     },
     "PostList": {
         "Comments": "留言區"
+    },
+    "Comment": {
+        "Placeholder": "請留言",
+        "AddNew": "新增留言",
+        "SaveMsg": "留言已新增."
     }
 }
