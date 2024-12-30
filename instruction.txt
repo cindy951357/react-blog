@@ -1,3 +1,5 @@
 firebase init hosting 
 //如果專案已使用其他平台（如 Vercel 或 Netlify）進行托管，則無需初始化 Firebase Hosting。
 //目前不考慮vercel
+
+直接在powershell輸入wsl
