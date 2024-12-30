@@ -1,0 +1,43 @@
+name: Deploy to Firebase Hosting Preview on Merge Request
+
+on:
+  pull_request:
+    branches:
+      - master # 根據需要修改目標分支（如 develop、staging）
+
+permissions:
+  contents: read
+
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 檢出代碼
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 設置 Node.js 環境
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      # 安裝依賴
+      - name: Install dependencies
+        run: npm ci
+
+      # 構建專案
+      - name: Build the project
+        run: npm run build
+
+      # 部署到 Firebase Hosting 的預覽環境
+      - name: Deploy to Firebase Hosting Preview
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: your-firebase-project-id # 替換為你的 Firebase 專案 ID
+          channelId: preview-${{ github.event.pull_request.number }}
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
