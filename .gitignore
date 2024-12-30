@@ -39,3 +39,6 @@ next-env.d.ts
 .firebase
 .firebase/*
 functions/node_modules/
+
+#.zip files
+blog.zip

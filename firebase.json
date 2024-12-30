@@ -8,13 +8,7 @@
     ],
     "frameworksBackend": {
       "region": "asia-east1"
-    },
-    "rewrites": [
-      {
-        "source": "**",
-        "function": "nextApp"
-      }
-    ]
+    }
   },
   "functions": [
     {
