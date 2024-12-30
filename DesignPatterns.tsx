@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // 工廠模式：生成不同按鈕
-const createButton = (isLoggedIn, onClick) => {
+const createButton = (isLoggedIn: boolean, onClick: () => {}) => {
   if (isLoggedIn) {
     return (
       <button
