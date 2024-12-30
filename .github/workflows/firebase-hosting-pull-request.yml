@@ -1,27 +1,19 @@
-# GitHub Actions 配置：部署到 Firebase Hosting (Pull Request 預覽)
 name: Deploy to Firebase Hosting on PR
 
 on: pull_request
 
-permissions:
-  checks: write
-  contents: read
-  pull-requests: write
-
 jobs:
   build_and_preview:
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
       # 檢出代碼
       - uses: actions/checkout@v4
       
       # 設置 Node.js 環境
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: "18" # 確保使用正確的 Node.js 版本
-
+          node-version: "18"
+      
       # 安裝依賴
       - name: Install dependencies
         run: npm install
@@ -36,4 +28,3 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_REACT_BLOG_FE082 }}
           projectId: react-blog-fe082
-          #channelId: preview # 部署到臨時預覽環境
