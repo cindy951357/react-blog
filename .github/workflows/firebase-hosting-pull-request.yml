@@ -18,3 +18,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_REACT_BLOG_FE082 }}
           projectId: react-blog-fe082
+          channelId: preview # 部署到臨時預覽環境
