@@ -25,7 +25,7 @@ export default function Index() {
     if (ready) {
       showToast(t('Common.WebGreeting')); // 準備就緒後才執行
     }
-  }, []);
+  }, [ready]);
 
   return (
     <div

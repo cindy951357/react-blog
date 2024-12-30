@@ -1,0 +1,87 @@
+import React, { useState } from "react";
+
+// 工廠模式：生成不同按鈕
+const createButton = (isLoggedIn, onClick) => {
+  if (isLoggedIn) {
+    return (
+      <button
+        onClick={onClick}
+        className="flex items-center px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300"
+      >
+        <img
+          src="/path/to/avatar.png"
+          alt="User Avatar"
+          className="w-8 h-8 rounded-full mr-2"
+        />
+        <span>Profile</span>
+      </button>
+    );
+  }
+  return (
+    <button
+      onClick={onClick}
+      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+    >
+      Register
+    </button>
+  );
+};
+
+// 抽象工廠模式：生成不同下拉選單
+const createMenu = (isLoggedIn, handleProfileClick, handleLogoutClick) => {
+  if (isLoggedIn) {
+    return (
+      <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+        <button
+          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+          onClick={handleProfileClick}
+        >
+          Profile Settings
+        </button>
+        <button
+          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+          onClick={handleLogoutClick}
+        >
+          Logout
+        </button>
+      </div>
+    );
+  }
+  return null; // 未登入時無需下拉選單
+};
+
+// 命令模式：封裝操作
+const createCommand = (execute) => ({ execute });
+
+const handleProfileCommand = createCommand(() =>
+  console.log("Navigating to Profile Settings...")
+);
+const handleLogoutCommand = createCommand(() =>
+  console.log("Logging out...")
+);
+
+// 狀態管理：主組件
+const UserMenu = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleToggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const handleRegisterClick = () => console.log("Navigating to Register Page");
+  const handleProfileClick = () => handleProfileCommand.execute();
+  const handleLogoutClick = () => {
+    handleLogoutCommand.execute();
+    setIsLoggedIn(false); // 切換至未登入狀態
+    setIsMenuOpen(false); // 關閉菜單
+  };
+
+  return (
+    <div className="relative">
+      {createButton(isLoggedIn, isLoggedIn ? handleToggleMenu : handleRegisterClick)}
+      {isMenuOpen &&
+        createMenu(isLoggedIn, handleProfileClick, handleLogoutClick)}
+    </div>
+  );
+};
+
+export default UserMenu;
+

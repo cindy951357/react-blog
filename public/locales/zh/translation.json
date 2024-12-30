@@ -1,7 +1,9 @@
 {
     "Common": {
         "WebGreeting": "歡迎光臨馨蒂部落格",
-        "ClickUpload": "上傳"
+        "ClickUpload": "上傳",
+        "Register": "註冊",
+        "Login": "登入"
     },
     "PostList": {
         "Comments": "留言區"

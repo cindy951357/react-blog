@@ -1,9 +1,12 @@
 {
     "Common": {
+        "WebsiteName": "Cindy's Blog",
         "WebGreeting": "Welcome to Cindy's Blog.",
         "Submit": "Submit",
         "Cancel": "Cancel",
-        "ClickUpload": "Upload"
+        "ClickUpload": "Upload",
+        "Register": "Register",
+        "Login": "Login"
     },
     "PostList": {
         "Comments": "Comments"
