@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "clean": "rm -rf .next",
-    "build": "npm run clean && next build",
-    "postbuild": "npm run clean",
+    "build": "next build",
+    "postbuild": "",
     "start": "next start",
     "lint": "next lint"
   },

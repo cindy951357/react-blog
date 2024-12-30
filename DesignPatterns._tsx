@@ -28,7 +28,9 @@ const createButton = (isLoggedIn: boolean, onClick: () => {}) => {
 };
 
 // 抽象工廠模式：生成不同下拉選單
-const createMenu = (isLoggedIn, handleProfileClick, handleLogoutClick) => {
+const createMenu = (isLoggedIn: boolean,
+  handleProfileClick: () => {},
+  handleLogoutClick: () => {}) => {
   if (isLoggedIn) {
     return (
       <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
@@ -51,7 +53,7 @@ const createMenu = (isLoggedIn, handleProfileClick, handleLogoutClick) => {
 };
 
 // 命令模式：封裝操作
-const createCommand = (execute) => ({ execute });
+const createCommand = (execute: any) => ({ execute });
 
 const handleProfileCommand = createCommand(() =>
   console.log("Navigating to Profile Settings...")
