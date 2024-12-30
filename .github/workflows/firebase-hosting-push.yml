@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting on Push
 on:
   push:
     branches:
-      - master # 修改為你希望觸發部署的分支，例如 `main` 或 `production`
+      - master
 
 permissions:
   contents: read
