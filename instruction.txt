@@ -3,3 +3,5 @@ firebase init hosting
 //目前不考慮vercel
 
 直接在powershell輸入wsl
+
+在google console的服務帳號，小老鼠符號左邊應該前綴firebase-adminsdk-
