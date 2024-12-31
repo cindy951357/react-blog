@@ -1,11 +1,11 @@
-export interface IPost {
+import { IBookmarked, ILikable } from "./DecoratorPattern";
+
+export interface IPost extends ILikable, IBookmarked{
   id: string;
   postTitle: string;
   content: string;
   time: string;
-  numLikes: number;
-  favoritedNum: number;
-  imgUrls: Array<any>;
+  imgUrls: String[];
   commentIds: Array<string>;
 }
 
@@ -15,11 +15,10 @@ export interface IErrorPost {
   imageError: [[boolean, string],]
 };
 
-export interface IComment {
+export interface IComment extends ILikable, IBookmarked {
   id: string;
   postId: string;
   author: string;
   time: string;
   content: string;
-  numLikes: number;
 }

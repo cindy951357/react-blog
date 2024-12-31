@@ -10,15 +10,19 @@ import storage from "redux-persist/lib/storage";
 // createPost 負責初始化單篇文章（IPost）
 // addPost reducer 則是專注於新增一篇文章到清單的邏輯
 // 工廠函數，用於生成單篇文章
-const createPost = (postTitle: string, content: string): IPost => {
-    console.log('factory', postTitle, content);
+const createPost = (
+    postTitle: string,
+    content: string,
+    initialLikes: number = 0,            // 支持自定義初始按讚數量
+    initialBookmarks: number = 0    // 支持自定義初始收藏數量
+): IPost => {
     return {
         id: Date.now().toString(), // 使用當前時間戳作為唯一 ID
         postTitle,          // 設定文章標題
         content,                   // 設定文章內容
         time: new Date().toISOString(), // 自動生成發布時間
-        numLikes: 0,               // 初始按讚數量為 0
-        favoritedNum: 0,        // 初始收藏狀態
+        numLikes: initialLikes,               // 初始按讚數量為 0
+        numBookmarked: initialBookmarks,        // 初始收藏狀態
         imgUrls: [],               // 圖片列表，初始化為空
         commentIds: [],            // 評論 ID 列表，初始化為空
     };
@@ -91,12 +95,12 @@ export const postSlice = createSlice({
             }
         },
         // 收藏文章
-        /*favoritePost: (state, action: PayloadAction<string>) => {
+        bookmarkPost: (state, action: PayloadAction<string>) => {
             const post = state.postList.find((p) => p.id === action.payload);
             if (post) {
-                post.isFavorited = true;
+                post.numBookmarked += 1;
             }
-        },*/
+        },
     },
 });
 
@@ -113,6 +117,8 @@ export const {
     setImagesToUpload,
     setReduxPostSourceFromLocalStorage,
     addCommentToPost,
+    likePost,
+    bookmarkPost,
 } = postSlice.actions;
 
 export default persistReducer(

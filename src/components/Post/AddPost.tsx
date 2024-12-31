@@ -1,22 +1,20 @@
 'use client'
 
-import React, { useState, useRef, useEffect, memo, useCallback } from "react";
+import React, { useState,} from "react";
 import { useRouter } from 'next/navigation';
 import { useToast } from "../../context/ToastContext";
-import { useTranslation,  } from "next-i18next";
-import { addPost, } from '@/features/postSlice';
+import { addPost, likePost, } from '@/features/postSlice';
 import { useDispatch, useSelector, } from "react-redux";
 import { MAX_POST_TITLE_LENGTH } from "@/constant";
 import { IErrorPost, IPost, } from "@/interfaces/PostInterface";
 import RippleButton from "../Button/RippleButton";
-import { v4 as uuidv4 } from 'uuid';
 import { delay, } from '@/util/timeUtil';
-import { IRootState } from "@/store";
-
-import { createCommand } from "@/util/commandUtils"; // 命令模式工具
-import { createPost } from "@/util/factoryUtils";
+import { IRootState, } from "@/store";
 
 import ImageUploader from "./ImageUploader";
+// import { useTranslation,  } from "next-i18next";
+// import { v4 as uuidv4 } from 'uuid';
+
 
 // useState：
 
@@ -52,7 +50,7 @@ const AddPost = ({}) => {
       time: '',
       imgUrls: [],
       numLikes: 0,
-      favoritedNum: 0,
+      numBookmarked: 0,
       commentIds: [],
     }
   );

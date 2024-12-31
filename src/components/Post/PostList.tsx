@@ -4,7 +4,7 @@ import React, { memo, useEffect, useState } from "react";
 import { IPost, } from "@/interfaces/PostInterface";
 import RippleButton from "../Button/RippleButton";
 import { useDispatch, useSelector, } from "react-redux";
-import { setCurrentPostById, setReduxPostSourceFromLocalStorage, }
+import { likePost, setCurrentPostById, setReduxPostSourceFromLocalStorage, }
  from '@/features/postSlice';
 import { useRouter } from "next/router";
 import { IRootState } from "@/store";
@@ -74,7 +74,7 @@ const PostList: React.FC<PostListProps> = memo(({ showCommentList, }) => {
             <p className="post-content text-gray-700 mb-2">{post.content}</p>
             {post.imgUrls && post.imgUrls[0] && (
               <img
-                src={decideImagesSrc(post.imgUrls[0])}
+                src={decideImagesSrc(post.imgUrls[0].toString())}
                 className="rounded-xl w-40 md:w-80"
                 alt={post.postTitle}
               />
@@ -84,8 +84,9 @@ const PostList: React.FC<PostListProps> = memo(({ showCommentList, }) => {
             ">
               <img src='./images/heart-black-outline.svg' className='w-8 h-8 flex mr-4
                 cursor-pointer active:scale-125
-                transform transition-transform duration-300 ease-in-out hover:scale-125
-              '/>
+                transform transition-transform duration-300 ease-in-out hover:scale-125'
+                onClick={() => {dispatch(likePost(post.id))}}  
+              />
               <strong className='flex'>Likes: {post.numLikes}</strong>
             </div>
           </div>
