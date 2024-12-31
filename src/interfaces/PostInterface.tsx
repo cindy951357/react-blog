@@ -4,6 +4,7 @@ export interface IPost {
   content: string;
   time: string;
   numLikes: number;
+  favoritedNum: number;
   imgUrls: Array<any>;
   commentIds: Array<string>;
 }

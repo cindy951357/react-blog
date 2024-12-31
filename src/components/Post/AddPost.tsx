@@ -13,6 +13,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { delay, } from '@/util/timeUtil';
 import { IRootState } from "@/store";
 
+import { createCommand } from "@/util/commandUtils"; // 命令模式工具
+import { createPost } from "@/util/factoryUtils";
+
 import ImageUploader from "./ImageUploader";
 
 // useState：
@@ -40,16 +43,16 @@ import ImageUploader from "./ImageUploader";
 const AddPost = ({}) => {
   const dispatch = useDispatch();
   const postsFromRedux = useSelector((state: IRootState) => state.post.postList);
-  const IDString = uuidv4();
-  // const { addPost, posts, } = usePosts();
+ 
   const [inputPost, setInputPost] = useState<IPost>(
     {
-      id: IDString.toString(),
+      id: '', // is determined at factory init phase
       postTitle: '',
       content: '',
       time: '',
       imgUrls: [],
       numLikes: 0,
+      favoritedNum: 0,
       commentIds: [],
     }
   );
@@ -82,16 +85,24 @@ const AddPost = ({}) => {
     });
   };
 
-  const validateInput = () => {
+  const validateInput:() => boolean = () => {
+    return true;
     //TODO:
   };
 
   const handleSave = async() => {
-    console.log('handleSave被呼叫幾次?');
-    //驗證輸入合法性
-    validateInput();    
+    //驗證輸入合法性   
+    if (!validateInput()) {
+      showToast("Please fix the errors before saving.");
+      return;
+    }
+
+    // Dispatch Redux Action: 新增文章
+    dispatch(addPost({
+      postTitle: inputPost.postTitle,
+      content: inputPost.content
+    }));
     
-    await dispatch(addPost(inputPost));
     setPrevPostLen(oldLen => (oldLen + 1));
     setIstEditStatusLocked(true);
     await delay(2500);
