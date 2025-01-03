@@ -7,11 +7,17 @@ export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <div className="flex items-center justify-between px-4 bg-gray-100 z-70">
-      <div className={`flex-1 text-center font-bold text-lg ${nunito.className}`}>
-        {t("Common.WebsiteName")}
+    <div className={`title-and-user-btn h-10 relative flex 
+      items-center bg-gray-100 z-70
+    ${nunito.className}`}>
+      {/* Title 置中, 用到transform-translate*/}
+      <div className="absolute left-1/2 transform -translate-x-1/2
+      font-bold text-lg p-3">          
+        <span className={nunito.className}>{t("Common.WebsiteName")}</span>
       </div>
-      <div className={`flex-none ${nunito.className}`}>
+
+      {/* UserMenu 靠右 */}
+      <div className={`h-full flex-none ml-auto`}>
         <UserMenu />
       </div>
     </div>

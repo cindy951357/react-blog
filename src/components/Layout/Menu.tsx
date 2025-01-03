@@ -76,7 +76,7 @@ const Menu: React.FC = () => {
             <Link href="/write" legacyBehavior>
               <a>
                 <PlainButton
-                  btnText={"Write a Post"}
+                  btnText={"Write"}
                   color={
                     activePage === "/write" ? "LavenderBlush" : ""
                   }
@@ -98,7 +98,7 @@ const Menu: React.FC = () => {
                   }
                   onClick={() => {
                     setActivePage("/saved");
-                    navigateTo("/saved/liked");
+                    navigateTo("/saved");
                   }}
                 />
               </a>

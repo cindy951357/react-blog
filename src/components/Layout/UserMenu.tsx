@@ -14,13 +14,15 @@ const createButton = (isLoggedIn: boolean,
     return ready && (
       <button
         onClick={onClick}
-        className="flex items-center px-4 py-2 hover:bg-gray-300
+        className="h-full w-10 flex justify-center items-center
+        hover:bg-gray-300
         z-999"
       >
+        {/** avatar head photo */}
         <img
           src="/icons/avatar.png"
           alt="User Avatar"
-          className="w-4 h-4 rounded-full"
+          className="w-6 h-6 flex rounded-full object-cover"
         />
       </button>
     );
@@ -54,7 +56,7 @@ const createMenu = (isLoggedIn: boolean,
   handleLogoutClick: React.MouseEventHandler<HTMLButtonElement> | undefined,) => {
   if (isLoggedIn) {
     return (
-      <div className="absolute right-0 mt-2 w-48 bg-white rounded-md
+      <div className="absolute right-0 mt-2 w-48 bg-[#ffffff]
         z-999 shadow-lg py-1">
         <button
           className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
@@ -103,7 +105,7 @@ const UserMenu = () => {
   };
 
   return (
-    <div className="user-menu relative">
+    <div className="user-menu relative h-full">
       {createButton(isLoggedIn, isLoggedIn ? handleToggleMenu : handleRegisterClick)}
       {isMenuOpen &&
         createMenu(isLoggedIn, handleProfileClick, handleLogoutClick,)}
