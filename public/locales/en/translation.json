@@ -6,7 +6,8 @@
         "Cancel": "Cancel",
         "ClickUpload": "Upload",
         "Register": "Register",
-        "Login": "Login"
+        "Login": "Login",
+        "LogoutMsg": "You are logged out"
     },
     "PostList": {
         "Comments": "Comments"
@@ -15,5 +16,11 @@
         "Placeholder": "Please enter your comment...",
         "AddNew": "Add a new comment",
         "SaveMsg": "New comment saved."
+    },
+    "Register": {
+        "AccountPlaceholder": "Enter your Account",
+        "FirstPwdPlaceholder": "Enter your password",
+        "SecondPwdPlaceholder": "Confirm your password",
+        "Title": "Create your account"
     }
 }

@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import React, { useState } from "react";
 import { nunito } from "@/util/fontUtil";
+import { useToast } from "@/context/ToastContext";
 
 // 工廠模式：根據登入與否生成不同按鈕
 const createButton = (isLoggedIn: boolean,
@@ -13,7 +14,8 @@ const createButton = (isLoggedIn: boolean,
     return ready && (
       <button
         onClick={onClick}
-        className="flex items-center px-4 py-2 hover:bg-gray-300"
+        className="flex items-center px-4 py-2 hover:bg-gray-300
+        z-999"
       >
         <img
           src="/icons/avatar.png"
@@ -25,7 +27,7 @@ const createButton = (isLoggedIn: boolean,
   }
   //登出下的情境
   return ready && (
-    <div className={`flex gap-2 ${nunito.className}`}>
+    <div className={`flex gap-2 z-999 ${nunito.className}`}>
       <Link href="/login" legacyBehavior>
           <button
           onClick={onClick}
@@ -52,7 +54,8 @@ const createMenu = (isLoggedIn: boolean,
   handleLogoutClick: React.MouseEventHandler<HTMLButtonElement> | undefined,) => {
   if (isLoggedIn) {
     return (
-      <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+      <div className="absolute right-0 mt-2 w-48 bg-white rounded-md
+        z-999 shadow-lg py-1">
         <button
           className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
           onClick={handleProfileClick}
@@ -86,11 +89,15 @@ const UserMenu = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const { showToast } = useToast();
+  const { t } = useTranslation();
+
   const handleToggleMenu = () => setIsMenuOpen((prev) => !prev);
   const handleRegisterClick = () => console.log("Navigating to Register Page");
   const handleProfileClick = () => handleProfileCommand.execute();
   const handleLogoutClick = () => {
     handleLogoutCommand.execute();
+    showToast(t('Common.LogoutMsg'));
     setIsLoggedIn(false); // 切換至未登入狀態
     setIsMenuOpen(false); // 關閉菜單
   };

@@ -104,7 +104,7 @@ const AddComment: React.FC<AddCommentProps> = ({ postId, }) => {
             <RippleButton
                 displayText={t("Common.Submit")}
                 detail={false}
-                withBg={true}
+                withBg
                 onClick={handleSubmit}
                 isCentered
             />

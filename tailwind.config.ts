@@ -28,8 +28,12 @@ const config: Config = {
           DEFAULT: '#f43f5e', // rose-500
         },
         secondary: {
+          DEFAULT: '#fdf9f3',
           100: '#fdf9f3',
-          300: '#faefd9', // light creamy
+          200: '#fbf2eb',
+          300: '#faefd9',
+          400: '#f6e5c2',
+          500: '#f3d8a8',
         },
         skin: '#ffe5c8',
         success: '#f4ffb8', // lime
@@ -46,8 +50,10 @@ const config: Config = {
         'xxl': '24px',
       },
       zIndex: {
-        'z-999': '999',
-      }
+        '60': '60',
+        '70': '70',
+        '999': '999', // 自定義最大 z-index
+      },
     },
   },
   plugins: [],

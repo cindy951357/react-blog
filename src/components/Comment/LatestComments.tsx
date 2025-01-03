@@ -6,7 +6,7 @@ const LatestComment: React.FC = () => {
   const latestComment = comments[comments.length - 1];
 
   return (
-    <div>
+    <div className={`latest-comment z-40`}>
       <h2>Latest Comment</h2>
       {latestComment ? <p>{latestComment.content}</p> : <p>No comments yet.</p>}
     </div>

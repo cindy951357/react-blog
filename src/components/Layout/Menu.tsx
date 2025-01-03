@@ -4,7 +4,11 @@ import Link from "next/link";
 import PlainButton from "../Button/PlainButton";
 import { useActivePage } from "@/context/ActivePageContext";
 
-const menuItems = ["/", "/write", "/about/site-intro"];
+const menuItems = [
+  "/",
+  "/write",
+  "/saved",
+  "/about/site-intro"];
 
 const Menu: React.FC = () => {
   const { activePage, setActivePage } = useActivePage();
@@ -79,6 +83,22 @@ const Menu: React.FC = () => {
                   onClick={() => {
                     setActivePage("/write");
                     navigateTo("/write");
+                  }}
+                />
+              </a>
+            </Link>
+            <Link href="/saved" legacyBehavior>
+              <a>
+                <PlainButton
+                  btnText={"Saved"}
+                  color={
+                    activePage === "/saved"
+                      ? "LavenderBlush"
+                      : ""
+                  }
+                  onClick={() => {
+                    setActivePage("/saved");
+                    navigateTo("/saved/liked");
                   }}
                 />
               </a>

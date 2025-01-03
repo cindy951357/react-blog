@@ -13,11 +13,12 @@ const Layout: React.FC<LayoutProps> = memo(({ children }) => {
   return (
     <div className="layout header-main-footer flex flex-col h-full">
       <Header />
-      <div className="flex menu-and-content flex-col h-full-minus-footer w-full">
+      <div className="flex menu-and-content flex-col h-full-minus-footer w-full
+        z-30">
         <Menu />
-        <div className="content main-content-layout flex justify-center w-full">
+        <main className="content main-content-layout flex justify-center w-full">
           {children}
-        </div>
+        </main>
       </div>
       <Footer />
     </div>
