@@ -30,7 +30,7 @@ const PostContentComponent: React.FC = () => {
             <img
               key={index}
               className="w-[200px] md:max-w-80 rounded-xl"
-              src={`/images/${currentPost.imgUrls[0]}`}
+              src={`${currentPost.imgUrls[0]}`}
               alt={`Image ${index + 1}`}
             />
           ))}
